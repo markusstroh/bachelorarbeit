@@ -1,0 +1,17 @@
+theoretischer teil:
+	generelles vorgehen: meine pattern recognition aufgabe teile ich in 3 phasen ein(wang,patrick S.P.,"Pattern Recognition, Machine Intelligence and biometrics", S.3):
+		1. Segmentierung -> die logfiles werden so eingeteilt, dass zum einen für mich irrelevante einträge nicht mehr berücksichtigt werden denn letzen endes stehen in den logfiles die kompletten serveraktivitäten als incoming request | outgong response. das wäre quasi der erste teil der segmentierung. der zweite teil wäre dann die einträge so zusammen zu fassen, dass der erste und letzte eintrag mit identischer sessionid eine session repräsentiert. das nenne ich einfach mal session instanz. in dieser instanz stehen dann eigentlich nur noch zeit,sessionid,userid,incoming|outgoing und url.
+		2. feature extraction -> hier würde ich dann schauen, welche widgets für den user aktiviert sind, bzw ob er in den einstellungen war. dementsprechend könnte ich mir z.B. einen vektor definieren, der denotiert, welche widgets aktiv sind/angesprochen wurden etc. nun muss ich noch schauen, was für ein feature diese information ist. eine Idee wäre, dass ich z.b. in einem vektor speicher ob ein widget benutzt wurde oder nicht (0/1) (die idee kommt aus introduction to pattern recognition and machine learning)
+		3. classification -> hier muss ich noch bisschen mehr zu recherchieren, aber im letzten schritt möchte ich ja wissen, ob im zeitraum x widget y benutzt wurde. also kann ich einfach die vektoren addieren und wenn meine gesuchte komponente 0 ist weiß ich, dass das widget nicht benutzt wurde. und dann könnte ich in der db nachgucken, ob das widget ursprünglich mal aktiviert war.
+			--> stichworte: nearest neighbor, (k-means-) distance?
+	
+	
+ist das im großen und ganzen als clustering zu verstehen, wenn nein: ist clustering die lösung des problems?
+zur segmentierung: ich möchte eigentlich die
+
+praktischer teil:
+	filebeat schaut die ganze zeit, ob in den logfiles ein neuer eintrag drin ist und schickt das an an logstash. -> darf ich hier die filebeat config von kevin benutzen?
+	logstash bekommt einen sessionlog eintrag. per regexp kann ich ab hier schon filtern, welche einträge für mich relevant sind. z.b. werden einträge, die keine sessionid haben nicht gematched und wenn etwas nicht gematched wird, wird es ignoriert. außerdem kann ich in einträgen, die gematched werden mir dann fest legen, welche einträge ich speichern muss und welche nicht. eigentlich brauche ich nur [timestamp][sessionid][userid][url]. ich glaube ich könnte hier sogar auch auf outgoing response verzichten. der parser ist größtenteils schon fertig geschrieben.
+
+was kommt als nächstes:
+	angenommen, mein theorie ansatz ist richtig und gut. dann muss ich mir überlegen, wie ich meine session instanzen und die vektoren in elasticsearch rein bekomme. außerdem muss ich mir noch überlegen, wie ich dann von elasticsearch bzw kibana aus ein trigger event an das ifp bzw fip schicke. schließlich muss ich auch noch genauer recherchieren, was ich alles für möglichkeiten für kibana und elasticsearch habe.
