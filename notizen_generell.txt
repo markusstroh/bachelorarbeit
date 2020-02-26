@@ -15,3 +15,23 @@ praktischer teil:
 
 was kommt als nächstes:
 	angenommen, mein theorie ansatz ist richtig und gut. dann muss ich mir überlegen, wie ich meine session instanzen und die vektoren in elasticsearch rein bekomme. außerdem muss ich mir noch überlegen, wie ich dann von elasticsearch bzw kibana aus ein trigger event an das ifp bzw fip schicke. schließlich muss ich auch noch genauer recherchieren, was ich alles für möglichkeiten für kibana und elasticsearch habe.
+
+
+Literatur (bis jetzt):
+	wang,patrick S.P.,"Pattern Recognition, Machine Intelligence and biometrics"
+	Narasimha Murty, M. ; Devi, V. Susheela, Introduction to pattern recognition and machine learning
+	https://www.cs.unm.edu/~mueen/Papers/LogMine.pdf
+	elastic search seite
+	kibana seite
+	logstash seite
+	filebeat seit
+
+
+zu 2:
+	verschiedene reqpäsentationen
+
+zu 3:
+	manhatten diszanz (für 0/1)
+	euklidische distanz (für numerisch)
+	minkowski distanz
+	assosiation rules: was tritt im zusammenhang mit was auf?
