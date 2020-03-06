@@ -1,0 +1,244 @@
+{
+  "took" : 3,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 34,
+      "relation" : "eq"
+    },
+    "max_score" : null,
+    "hits" : [ ]
+  },
+  "aggregations" : {
+    "userid" : {
+      "doc_count_error_upper_bound" : 0,
+      "sum_other_doc_count" : 0,
+      "buckets" : [
+        {
+          "key" : "17:SchusterL",
+          "doc_count" : 34,
+          "sessionid" : {
+            "doc_count_error_upper_bound" : 0,
+            "sum_other_doc_count" : 0,
+            "buckets" : [
+              {
+                "key" : "QN5xIa08v7_zBRmGwIJaw6OQ2V2pJe8nk29Xe1-f",
+                "doc_count" : 10,
+                "max-time" : {
+                  "value" : 1.582022688552E12,
+                  "value_as_string" : "2020-02-18T10:44:48.552Z"
+                },
+                "min-time" : {
+                  "value" : 1.582022676759E12,
+                  "value_as_string" : "2020-02-18T10:44:36.759Z"
+                },
+                "url" : {
+                  "doc_count_error_upper_bound" : 0,
+                  "sum_other_doc_count" : 0,
+                  "buckets" : [
+                    {
+                      "key" : "/balances/currencies/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/balances/list/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/balances/today/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/config",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/creditsAndDebits/id/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactionsMainListReport",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/fx",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/incomingTransactions/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactions_last7days",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/openPayments/creditDebits",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/summary",
+                      "doc_count" : 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key" : "MCM_CqexqC84BfDJRtXPWZRePTbKfY-7tywAHm4W",
+                "doc_count" : 8,
+                "max-time" : {
+                  "value" : 1.582022704795E12,
+                  "value_as_string" : "2020-02-18T10:45:04.795Z"
+                },
+                "min-time" : {
+                  "value" : 1.582022703341E12,
+                  "value_as_string" : "2020-02-18T10:45:03.341Z"
+                },
+                "url" : {
+                  "doc_count_error_upper_bound" : 0,
+                  "sum_other_doc_count" : 0,
+                  "buckets" : [
+                    {
+                      "key" : "/balances/currencies/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/balances/list/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/creditsAndDebits/id/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactionsMainListReport",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/fx",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/incomingTransactions/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactions_last7days",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/openPayments/creditDebits",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/summary",
+                      "doc_count" : 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key" : "T59ahKDMs5RAFqoGIJwcxK_elvdNj023LPSxBuPe",
+                "doc_count" : 8,
+                "max-time" : {
+                  "value" : 1.582030937539E12,
+                  "value_as_string" : "2020-02-18T13:02:17.539Z"
+                },
+                "min-time" : {
+                  "value" : 1.582030936816E12,
+                  "value_as_string" : "2020-02-18T13:02:16.816Z"
+                },
+                "url" : {
+                  "doc_count_error_upper_bound" : 0,
+                  "sum_other_doc_count" : 0,
+                  "buckets" : [
+                    {
+                      "key" : "/balances/currencies/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/balances/list/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/creditsAndDebits/id/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactionsMainListReport",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/fx",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/incomingTransactions/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactions_last7days",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/openPayments/creditDebits",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/summary",
+                      "doc_count" : 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key" : "ovUbCRy3NYA01YXMdo6MtsoyPCwP7wYPFLi_Fbns",
+                "doc_count" : 8,
+                "max-time" : {
+                  "value" : 1.582027491091E12,
+                  "value_as_string" : "2020-02-18T12:04:51.091Z"
+                },
+                "min-time" : {
+                  "value" : 1.582027489766E12,
+                  "value_as_string" : "2020-02-18T12:04:49.766Z"
+                },
+                "url" : {
+                  "doc_count_error_upper_bound" : 0,
+                  "sum_other_doc_count" : 0,
+                  "buckets" : [
+                    {
+                      "key" : "/balances/currencies/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/balances/list/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/creditsAndDebits/id/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactionsMainListReport",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/fx",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/incomingTransactions/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactions_last7days",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/openPayments/creditDebits",
+                      "doc_count" : 1
+                    },
+                    {
+                      "key" : "/summary",
+                      "doc_count" : 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

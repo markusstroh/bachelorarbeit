@@ -1,3 +1,4 @@
+21.02.20
 theoretischer teil:
 	generelles vorgehen: meine pattern recognition aufgabe teile ich in 3 phasen ein(wang,patrick S.P.,"Pattern Recognition, Machine Intelligence and biometrics", S.3):
 		1. Segmentierung -> die logfiles werden so eingeteilt, dass zum einen für mich irrelevante einträge nicht mehr berücksichtigt werden denn letzen endes stehen in den logfiles die kompletten serveraktivitäten als incoming request | outgong response. das wäre quasi der erste teil der segmentierung. der zweite teil wäre dann die einträge so zusammen zu fassen, dass der erste und letzte eintrag mit identischer sessionid eine session repräsentiert. das nenne ich einfach mal session instanz. in dieser instanz stehen dann eigentlich nur noch zeit,sessionid,userid,incoming|outgoing und url.
@@ -16,7 +17,7 @@ praktischer teil:
 was kommt als nächstes:
 	angenommen, mein theorie ansatz ist richtig und gut. dann muss ich mir überlegen, wie ich meine session instanzen und die vektoren in elasticsearch rein bekomme. außerdem muss ich mir noch überlegen, wie ich dann von elasticsearch bzw kibana aus ein trigger event an das ifp bzw fip schicke. schließlich muss ich auch noch genauer recherchieren, was ich alles für möglichkeiten für kibana und elasticsearch habe.
 
-
+26.02.20 (treffen mit prof. conrad)
 Literatur (bis jetzt):
 	wang,patrick S.P.,"Pattern Recognition, Machine Intelligence and biometrics"
 	Narasimha Murty, M. ; Devi, V. Susheela, Introduction to pattern recognition and machine learning
@@ -24,14 +25,29 @@ Literatur (bis jetzt):
 	elastic search seite
 	kibana seite
 	logstash seite
-	filebeat seit
+	filebeat seite
 
 
 zu 2:
-	verschiedene reqpäsentationen
+	verschiedene repräsentationen (z.b. 0/1 vs. #aufrufe)
 
 zu 3:
 	manhatten diszanz (für 0/1)
 	euklidische distanz (für numerisch)
-	minkowski distanz
+	minkowski distanz (verallgemeinerung von den anderen)
 	assosiation rules: was tritt im zusammenhang mit was auf?
+
+
+27.02.20
+Sachen, die ich beachten muss:
+	- manche widgets haben doch keinen eigenen namen in der url, so wie z.b. transaction by date. das heißt, ich muss mir evtl noch was überlegen, wie ich bestimmte widgets auf bestimmte namen mappe.
+	- manche widgets kann ich in den logs nicht sehen, z.b. liquidity widgets. da müsste ich ins ifp was zum loggen eintragen.
+	- sollten die widgets eigene felder werden?
+
+05.03.20
+	ruby script ist in der ersten version fertig. sollte ich dort aber den algorithmus zum event berechnen in eine funktion auslagern?
+	so, wie ich die widgets bisher bestimmt habe, komme ich nicht weit. denn widget laden ist nicht das gleiche wie widget benutzen. also muss ich herausfinden, welche seiten vom widget aus aufgerufen werden, für jedes widget. dann muss ich herausfinden, wie ich ohne widget direkt auch die gleiche seite komme. dann wäre die frage: kann ich unterscheiden, ob diese seite nun mit dem widget aufgerufen wurde oder nicht? wenn nein, kann ich das irgendwie mit association rules abschätzen bzw bestimmen? dann muss ich mir überlegen, wie ich die informationen visualisiere. distanzen berechnen z.b. wäre die linien grafik in kibana, muss ich da noch großartig drauf eingehen, wie kibana das berechnet? welche visualisierungen brauche ich noch? muss ich mir evtl selber eine schreiben und wenn ja, ist es realistisch das zu implementieren?
+06.03.20
+	segmentierung: alle irrelevanten infos löschen
+	feature extraction: könnte sein, dass die feature extraction einfach das zählen ist
+	classification: mit association rules bestimmen, ob es sich um widget handelt oder nicht. das wird anhand der zählung bestimmt

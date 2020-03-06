@@ -1,0 +1,92 @@
+2020-03-03 09:45:22.507	INFO 	[]	[]	[]	[default task-4]	Session Store filter initialized
+2020-03-03 09:47:37.376	INFO 	[qpvmAGxGFiJf6Yb8GS_A9b3HtRrypEytVQagLc3s]	[]	[]	[default task-12]	Incoming request: POST /MULTIVERSA-IFP/cmddispatch userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=168
+Parameters:
+	task = 28
+=========================================================
+2020-03-03 09:47:37.386	INFO 	[qpvmAGxGFiJf6Yb8GS_A9b3HtRrypEytVQagLc3s]	[]	[]	[default task-12]	Outgoing response: POST /MULTIVERSA-IFP/cmddispatch&ajaxSource=null responseTime=10 processingTime=76 fetchedDatabaseRows=0 queriesExecutionTime=0 databaseQueries=0
+2020-03-03 09:47:37.398	INFO 	[qpvmAGxGFiJf6Yb8GS_A9b3HtRrypEytVQagLc3s]	[]	[]	[default task-13]	Incoming request: POST /MULTIVERSA-IFP/cmddispatch userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=49
+Parameters:
+	task = 34
+=========================================================
+2020-03-03 09:47:37.400	INFO 	[qpvmAGxGFiJf6Yb8GS_A9b3HtRrypEytVQagLc3s]	[]	[]	[default task-13]	Outgoing response: POST /MULTIVERSA-IFP/cmddispatch&ajaxSource=null responseTime=2 processingTime=38 fetchedDatabaseRows=0 queriesExecutionTime=0 databaseQueries=0
+2020-03-03 09:47:37.593	INFO 	[qpvmAGxGFiJf6Yb8GS_A9b3HtRrypEytVQagLc3s]	[]	[]	[default task-14]	Incoming request: POST /MULTIVERSA-IFP/cmddispatch userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=62
+Parameters:
+	task = 27
+	buph = b30f0aeeb6cca3cabcf6a3c75ce2d42810e584c9d4ef94cf08e73c4182a4fca3b23c1ab296aa8358fb01cd320841b00d5956405ee36ecf828fb158dd0553fd70f211c2bfd1c0bd142a8699ad09d594a4e7d75b70e6eae6f2146e9a882e28af34da350c7cf8dc1e0c52e2392cd247c26b288b36787a0be87606fa562a3cd56c39
+=========================================================
+2020-03-03 09:47:37.630	INFO 	[qpvmAGxGFiJf6Yb8GS_A9b3HtRrypEytVQagLc3s]	[]	[]	[default task-14]	Outgoing response: POST /MULTIVERSA-IFP/cmddispatch&ajaxSource=null responseTime=37 processingTime=15 fetchedDatabaseRows=0 queriesExecutionTime=0 databaseQueries=0
+2020-03-03 09:47:37.833	INFO 	[qpvmAGxGFiJf6Yb8GS_A9b3HtRrypEytVQagLc3s]	[]	[]	[default task-15]	Incoming request: POST /MULTIVERSA-IFP/cmddispatch userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=51
+Parameters:
+	task = 10
+	signature = 330351221cb9da0caf81f817dbc2c637cd9cc9ddfe3881d729b45b00a784f7182632984bb929011e778536944867f44d8f28da869200470d60b702dcca80897e69a00b2eacec5b391e3092786916760c735a6c894e9ee5d942f0e55f5b8e59f4f5ab5321274b1628328e9e4a50258bfea316d804aef881363df355edc79fe71a40daa79347c66cb132548b456b9e458fd5a26ff017e7876fe59c1b9b5f5d89566ab18bdc68ae95bfa2802681d926c7c82728c2dba4dc425cba9f6759502dc47755e01f3550a8c296431c53a1530318b582672849b5792cd9eb016b5452cba3f0dfdd0f1175a7d11fd3900d4d07ada172181074a17750827d5debd7f9fb610401
+	user = CTB.Trade_Group.demostroh
+	version = A006
+=========================================================
+2020-03-03 09:47:37.943	INFO 	[qpvmAGxGFiJf6Yb8GS_A9b3HtRrypEytVQagLc3s]	[]	[]	[default task-15]	Outgoing response: POST /MULTIVERSA-IFP/cmddispatch&ajaxSource=null responseTime=111 processingTime=14 fetchedDatabaseRows=7 queriesExecutionTime=30 databaseQueries=7
+2020-03-03 09:47:38.063	INFO 	[qpvmAGxGFiJf6Yb8GS_A9b3HtRrypEytVQagLc3s]	[]	[]	[default task-16]	Incoming request: POST /MULTIVERSA-IFP/cmddispatch userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=58
+Parameters:
+	task = 11
+	signature = 72873e02131816889cd0cd6f3da3042dc39f80c89331ec4b0b9a7a7b845118ff7c5ad1824b94ad41e1c8664375721ddc195a6ed2f064ad8e828d8c0f762fc17bed4f627155bd6551d967812896b3c24292e2347d8096b09a8ce8ae29ddd7def41c4341bd7e0daae06e7bb04840a5b514280f44fc8b899678580c1c14fb3b9908c4fa89ad7811093df82212817b4bec116b765e370c87e5e423a58047dd473b7e02e60b80719fc42ae0f1b60b49bccfc7c8b16bea8f221c388ad3920b508dc11bd57fa4fd565fbf88d7b826f8c854a5fbb2313b2f7b1418708641583882244de508512d37d600f4b5d9bace7310d9798f7a6a41caf6f6faff8d7d3d66f5234456
+	param = f62799111661ab282292d55734a719e75855513c56684888e02ae1916de785d2
+=========================================================
+2020-03-03 09:47:38.083	INFO 	[qpvmAGxGFiJf6Yb8GS_A9b3HtRrypEytVQagLc3s]	[]	[]	[default task-16]	Outgoing response: POST /MULTIVERSA-IFP/cmddispatch&ajaxSource=null responseTime=20 processingTime=13 fetchedDatabaseRows=0 queriesExecutionTime=0 databaseQueries=0
+2020-03-03 09:47:38.230	INFO 	[qpvmAGxGFiJf6Yb8GS_A9b3HtRrypEytVQagLc3s]	[]	[]	[default task-17]	Incoming request: POST /MULTIVERSA-IFP/faces/login/login.jsf?conversationContext=1&_ns_=null userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=59
+Parameters:
+	signature[0] = b8dcaa649abec8d66077820d9d368e263c50f15cf23644cede71d57e9c1ee68003e23123c235f8649b599061accb19c4bdb87437b2e1fdb426a94bf89ea8618bb782d2dc50679d6891e401b7c1c3145bb98ab9112a12ab658325c9805eee58d7172077a7d8b993f8ca19648bc29e758e177d56d93ee0254951aae979855faf865babe09f63a481cc5b9bbac12824d285c48d13ba77a2c36ae0c500f4767f3c926eaf84c989c424835192c3a37a81ed18b73753344170e4e84946c0303925045b1f4ce7c16afc80cb7d48e90af00a237eaa2548d98c15fd5d4fd26c87bae1e90953db6f28f15b0f01e88e5b7d71d80d66fdac10ca5cd29d1a913acc5749a219f6
+	login_form:login_method_form_entry:login_method_select = 1
+	javax.faces.ViewState = 3663089287649785222:-3573054387705844598
+	login_form:ebics_view:j_idt76:loginSurrogateButtonAuthorizationButtonContainer:loginSurrogateButtonSignButton = 
+	appletAction = loginSurrogateButton
+	signatureVersion = A006
+	conversationContext = 1
+	keyMedium = 0
+	login_form:ebics_view:keybag_location_entry:keybag_location_row:keybag_location = demostroh.dat
+	login_form = login_form
+	_ns_ = null
+	TIMESTAMP = 1583225258195
+	KEYSTORAGEOPTIONS = DP
+	diskId = CTB.Trade_Group.demostroh
+	sigType[0] = 3
+	user = CTB.Trade_Group.demostroh
+=========================================================
+2020-03-03 09:47:38.683	INFO 	[qpvmAGxGFiJf6Yb8GS_A9b3HtRrypEytVQagLc3s]	[]	[]	[default task-17]	Outgoing response: POST /MULTIVERSA-IFP/faces/login/login.jsf?conversationContext=1&_ns_=null&ajaxSource=null responseTime=453 processingTime=11 status=302 fetchedDatabaseRows=102 queriesExecutionTime=36 databaseQueries=23
+2020-03-03 09:47:38.711	INFO 	[m9b9fq36ec7mrOPb9w6edn3hlgCIiYOR0V99GMVn]	[Trade_Group]	[17:demostroh]	[default task-18]	Incoming request: GET /MULTIVERSA-IFP/faces/dashboard/dashboard.jsf?_ns_=9bc8dfa3-a4f0-4f2d-9907-fb68ea6132aa1&conversationContext=1 userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=1277
+Parameters:
+	conversationContext = 1
+	_ns_ = 9bc8dfa3-a4f0-4f2d-9907-fb68ea6132aa1
+=========================================================
+2020-03-03 09:47:41.334	INFO 	[m9b9fq36ec7mrOPb9w6edn3hlgCIiYOR0V99GMVn]	[Trade_Group]	[17:demostroh]	[default task-18]	Outgoing response: GET /MULTIVERSA-IFP/faces/dashboard/dashboard.jsf?_ns_=9bc8dfa3-a4f0-4f2d-9907-fb68ea6132aa1&conversationContext=1&ajaxSource=null responseTime=2624 processingTime=9 fetchedDatabaseRows=7051 queriesExecutionTime=404 databaseQueries=317
+2020-03-03 09:47:42.541	INFO 	[m9b9fq36ec7mrOPb9w6edn3hlgCIiYOR0V99GMVn]	[Trade_Group]	[17:demostroh]	[default task-2]	Incoming request: GET /MULTIVERSA-IFP/ws/dashboard/rest/openPayments/creditDebits?pagesize=7&dateFormat=dd%2FMM userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=67
+Parameters:
+	dateFormat = dd/MM
+	pagesize = 7
+=========================================================
+2020-03-03 09:47:42.561	INFO 	[m9b9fq36ec7mrOPb9w6edn3hlgCIiYOR0V99GMVn]	[Trade_Group]	[17:demostroh]	[default task-4]	Incoming request: GET /MULTIVERSA-IFP/ws/dashboard/rest/summary?content=valueBalanceToday&accountType=realAccounts userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=61
+Parameters:
+	 = 
+	accountType = realAccounts
+	content = valueBalanceToday
+=========================================================
+2020-03-03 09:47:42.600	INFO 	[m9b9fq36ec7mrOPb9w6edn3hlgCIiYOR0V99GMVn]	[Trade_Group]	[17:demostroh]	[default task-7]	Incoming request: GET /MULTIVERSA-IFP/ws/dashboard/rest/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed?page=1&pagesize=10 userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=71
+Parameters:
+	 = 
+	pagesize = 10
+	page = 1
+=========================================================
+2020-03-03 09:47:42.627	INFO 	[m9b9fq36ec7mrOPb9w6edn3hlgCIiYOR0V99GMVn]	[Trade_Group]	[17:demostroh]	[default task-11]	Incoming request: GET /MULTIVERSA-IFP/ws/dashboard/rest/balances/today/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView?pagesize=70&content=valueBalanceToday userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=65
+Parameters:
+	pagesize = 70
+	content = valueBalanceToday
+=========================================================
+2020-03-03 09:47:43.684	INFO 	[m9b9fq36ec7mrOPb9w6edn3hlgCIiYOR0V99GMVn]	[Trade_Group]	[17:demostroh]	[default task-2]	Outgoing response: GET /MULTIVERSA-IFP/ws/dashboard/rest/openPayments/creditDebits?pagesize=7&dateFormat=dd%2FMM&ajaxSource=null responseTime=1143 processingTime=12 status=200 fetchedDatabaseRows=23 queriesExecutionTime=300 databaseQueries=11
+2020-03-03 09:47:43.705	INFO 	[m9b9fq36ec7mrOPb9w6edn3hlgCIiYOR0V99GMVn]	[Trade_Group]	[17:demostroh]	[default task-7]	Outgoing response: GET /MULTIVERSA-IFP/ws/dashboard/rest/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed?page=1&pagesize=10&ajaxSource=null responseTime=1106 processingTime=14 status=200 fetchedDatabaseRows=6 queriesExecutionTime=134 databaseQueries=3
+2020-03-03 09:47:43.922	INFO 	[m9b9fq36ec7mrOPb9w6edn3hlgCIiYOR0V99GMVn]	[Trade_Group]	[17:demostroh]	[default task-11]	Outgoing response: GET /MULTIVERSA-IFP/ws/dashboard/rest/balances/today/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView?pagesize=70&content=valueBalanceToday&ajaxSource=null responseTime=1295 processingTime=13 status=200 fetchedDatabaseRows=542 queriesExecutionTime=414 databaseQueries=26
+2020-03-03 09:47:44.557	INFO 	[m9b9fq36ec7mrOPb9w6edn3hlgCIiYOR0V99GMVn]	[Trade_Group]	[17:demostroh]	[default task-4]	Outgoing response: GET /MULTIVERSA-IFP/ws/dashboard/rest/summary?content=valueBalanceToday&accountType=realAccounts&ajaxSource=null responseTime=1996 processingTime=11 status=200 fetchedDatabaseRows=768 queriesExecutionTime=1160 databaseQueries=262
+2020-03-03 09:56:12.815	INFO 	[m9b9fq36ec7mrOPb9w6edn3hlgCIiYOR0V99GMVn]	[Trade_Group]	[17:demostroh]	[default task-27]	Incoming request: GET /MULTIVERSA-IFP/ws/dashboard/rest/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed?page=2&pagesize=10 userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=133
+Parameters:
+	 = 
+	pagesize = 10
+	page = 2
+=========================================================
+2020-03-03 09:56:12.923	INFO 	[m9b9fq36ec7mrOPb9w6edn3hlgCIiYOR0V99GMVn]	[Trade_Group]	[17:demostroh]	[default task-27]	Outgoing response: GET /MULTIVERSA-IFP/ws/dashboard/rest/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed?page=2&pagesize=10&ajaxSource=null responseTime=108 processingTime=12 status=200 fetchedDatabaseRows=0 queriesExecutionTime=97 databaseQueries=2
+2020-03-03 13:37:45.557	INFO 	[]	[]	[]	[default task-3]	Session Store filter initialized

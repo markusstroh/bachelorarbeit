@@ -1,0 +1,34 @@
+{
+  "size": 0,
+  "aggs" : {
+    "userid": {
+      "terms": {
+        "field": "userid.keyword"
+      }, 
+      "aggs": {
+        "sessionid": {
+          "terms": {
+            "field": "sessionid.keyword"
+          },
+          "aggs": {
+            "url": {
+              "terms": {
+                "field": "url.keyword"
+              }
+            },
+            "min-time": {
+              "min": {
+                "field": "@timestamp"
+              }
+            },
+            "max-time": {
+              "max": {
+                "field": "@timestamp"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
