@@ -49,5 +49,22 @@ Sachen, die ich beachten muss:
 	so, wie ich die widgets bisher bestimmt habe, komme ich nicht weit. denn widget laden ist nicht das gleiche wie widget benutzen. also muss ich herausfinden, welche seiten vom widget aus aufgerufen werden, für jedes widget. dann muss ich herausfinden, wie ich ohne widget direkt auch die gleiche seite komme. dann wäre die frage: kann ich unterscheiden, ob diese seite nun mit dem widget aufgerufen wurde oder nicht? wenn nein, kann ich das irgendwie mit association rules abschätzen bzw bestimmen? dann muss ich mir überlegen, wie ich die informationen visualisiere. distanzen berechnen z.b. wäre die linien grafik in kibana, muss ich da noch großartig drauf eingehen, wie kibana das berechnet? welche visualisierungen brauche ich noch? muss ich mir evtl selber eine schreiben und wenn ja, ist es realistisch das zu implementieren?
 06.03.20
 	segmentierung: alle irrelevanten infos löschen
-	feature extraction: könnte sein, dass die feature extraction einfach das zählen ist
+	feature extraction: könnte sein, dass die feature extraction einfach das zählen ist, also die transformation. könnte aber auch die umwandlung von url strings sein
 	classification: mit association rules bestimmen, ob es sich um widget handelt oder nicht. das wird anhand der zählung bestimmt
+
+09.03.20
+	fragen für prof conrad:
+	1. unser elk wird an den kunden ausgeliefert und sollte von daher so automatisiert ablaufen, wie nur möglich. kommt das noch mit in die arbeit rein? also außer die notwendigen skripte, die ich schreibe?
+		-> ja kann ich machen aber nicht zu viel
+	2. mir ist aufgefallen, dass ich impliziet test driven development mache. ist das ein aspekt, der relevant ist? ist das überhaupt wirklich so? (weil ich weiß, was ich gemacht habe, wie die daten aussehen und welches ergebnis ich haben möchte)
+		-> 
+	3. dass widgets auf dem dashboard sind zählt noch nicht als benutzen. erst ein richtiges klicken zählt. ein klick in das widget bringt einen zu einer anderen seite (je nach widget z.b. mit gewissen filtern). beim klicken kann ich nicht ohne weiteres erkennen, dass ein widget geklickt wurde. darf ich den ifp logger so schreiben, dass diese info geloggt wird?
+		3.1 wenn nein: ich glaube, ich kann anhand des anzahl der incoming requests oder am url aufbau erkennen, dass es ein widget ist. kann ich mit assiciation rules bestimmen, ob ein widget geklickt wurde? muss ich die rules davor algorithmisch bestimmen oder darf ich die rules selber bestimmen und anhand selber gewählter werte für z.b. support abschätzen, ob eine seite durch ein widget aufgerufen wurde oder nicht? wäre es hier auch noch relevant, ob ich mir die dashboard config als json hole um zu sehen, welche widgets aktiv sind? weil wenn openpayments nicht in der dashboardconfig ist, brauche ich auch nicht prüfen, ob es benutzt wurde.
+			->
+		3.2 wenn ja: reicht es, wenn ich bei der dem classification teil sage, dass mich distanzen zwischen den einträgen interessieren und dann auf die lines visualization in kibana referiere? müsste ich dann auf den source code eingehen (macht er wirklich das, was ich will?). reicht diese eine visualisierung oder muss da noch mehr mit rein? funktioniert hier die classifizierung immernoch mit AR?
+			->
+	ich kanns machen wie ich will, die rules benutze ich in der klassifikation
+	4. ich habe verscheidene möglichkeiten ausprobiert um meine daten zu transformieren. kommt das mit rein? also mit der tatsache, dass das feature (noch) nicht implementiert ist?
+		-> kann ich erwähnen, aber nicht zu viel.
+
+ergebis nicht in zusammenfassung rein sondern als eigener abschnitt & implementierung umbenennen

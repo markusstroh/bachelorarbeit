@@ -1,2 +1,16 @@
 gpush.sh
 *.swp
+*.toc
+*.gz
+*.xml
+*.out
+*.lot
+latex/ba.log
+*.lof
+*.fls
+*.fdb_latexmk
+*.blg
+*.aux
+*.bbl
+*.bcf
+latex/ba.pdf
