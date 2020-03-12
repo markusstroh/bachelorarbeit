@@ -57,7 +57,7 @@ Sachen, die ich beachten muss:
 	1. unser elk wird an den kunden ausgeliefert und sollte von daher so automatisiert ablaufen, wie nur möglich. kommt das noch mit in die arbeit rein? also außer die notwendigen skripte, die ich schreibe?
 		-> ja kann ich machen aber nicht zu viel
 	2. mir ist aufgefallen, dass ich impliziet test driven development mache. ist das ein aspekt, der relevant ist? ist das überhaupt wirklich so? (weil ich weiß, was ich gemacht habe, wie die daten aussehen und welches ergebnis ich haben möchte)
-		-> 
+		-> nicht so wichtig
 	3. dass widgets auf dem dashboard sind zählt noch nicht als benutzen. erst ein richtiges klicken zählt. ein klick in das widget bringt einen zu einer anderen seite (je nach widget z.b. mit gewissen filtern). beim klicken kann ich nicht ohne weiteres erkennen, dass ein widget geklickt wurde. darf ich den ifp logger so schreiben, dass diese info geloggt wird?
 		3.1 wenn nein: ich glaube, ich kann anhand des anzahl der incoming requests oder am url aufbau erkennen, dass es ein widget ist. kann ich mit assiciation rules bestimmen, ob ein widget geklickt wurde? muss ich die rules davor algorithmisch bestimmen oder darf ich die rules selber bestimmen und anhand selber gewählter werte für z.b. support abschätzen, ob eine seite durch ein widget aufgerufen wurde oder nicht? wäre es hier auch noch relevant, ob ich mir die dashboard config als json hole um zu sehen, welche widgets aktiv sind? weil wenn openpayments nicht in der dashboardconfig ist, brauche ich auch nicht prüfen, ob es benutzt wurde.
 			->
@@ -68,3 +68,23 @@ Sachen, die ich beachten muss:
 		-> kann ich erwähnen, aber nicht zu viel.
 
 ergebis nicht in zusammenfassung rein sondern als eigener abschnitt & implementierung umbenennen
+
+12.02.20
+	Grundbegriffe association rules auf logs angewendet (knowledge discovery in databases)
+		- I = {i1,i2,...} Menge an Items. X <= I ist ein Itemset. In meinem Fall sind die widgetIds die Items
+		- D ist eine Menge von Transaktionen T mit T <= I. wenn für eine Menge an Items X gilt X <= T sagen wir T enthält X. Transaktion T ist bei mir eine Session, D sind alles Sessions zusammen (eine Datenbank an Sessions, realisiert durch elasticsearch)
+		- Items in den Transaktionen sollten nach Zeit(lexikographisch) sortiert sein. Dann kann man X = (x1,x2,x3,...,xn) mit x1 < x2 < x3 < ... < xn darstellen
+		- Anzahl elemente im itemset heißt länge des itemset. ein itemset der länge k heißt k-itemset
+		- Support: für eine menge X <= I ist der support von X der Anteil der Transaktionen in D, die X enthalten. Also bedeutet z.b. support(X) = 0.5, dass X in der hälfte aller Transaktionen in D vorkommt. Mit anderen worten: wenn summary in der hälfte aller sessions vorkommt, wäre support(summary)=0.5. Aber es konnte auch sowas sein wie support({summary,createUser})
+			-> support(x) = anzahl der transaktionen, die x enthalten / anzahl aller transaktionen
+		- eine association rule ist: X => Y (implikation) mit X,Y <= I (teilmengen) und X ^ Y = {}
+		- der support einer association rule X => Y ist der support über die vereinigung von X und Y. d.h. supp({X=>Y}) = supp({X,Y}). die vereinigung muss in D sein.
+		- die konfidenz c einer AR X=>Y ist die w-keit dafür, dass eine transaktion T alle Items aus Y enthält, wenn T alle items aus X enthält
+			-> c(x->y) = anzahl von mengen in X, die y enthalten / anzahl von mengen in D, die x enthalten
+	
+	was mache ich nun damit?
+		1. frequent itemsets bestimmen. frequent itemsets sind alle itemsets, die einen support > minsupport haben (minsupport legt der user fest). naiver ansatz würde einfach den support aller elemente von Potenzmenge(I) berechnen. ist aber schlecht weil laufzeit: 2^n. trick: wenn support für eine 1 elementige menge < minsupport haben auch alle mengen, die dieses element haben einen support < minsupport. glaube ich
+		2. aus den itemsets aus 1. werden ARs mit minimaler konfidenz gebildet. wenn X häufig auftritt ergibt jede teilmenge A von x eine regel A => (X-A) mit minimalen support. dann muss man noch prüfen, ob diese regel eine minimale konfidenz hat.
+
+		zu 1. : jede teilmenge eines häufig auftretenden itemsets muss auch häufig auftreten
+
