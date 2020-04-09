@@ -1,5 +1,5 @@
 {
-  "took" : 13,
+  "took" : 3,
   "timed_out" : false,
   "_shards" : {
     "total" : 1,
@@ -9,7 +9,7 @@
   },
   "hits" : {
     "total" : {
-      "value" : 87,
+      "value" : 270,
       "relation" : "eq"
     },
     "max_score" : null,
@@ -22,305 +22,553 @@
       "buckets" : [
         {
           "key" : "17:demostroh",
-          "doc_count" : 45,
+          "doc_count" : 270,
           "sessionid" : {
             "doc_count_error_upper_bound" : 0,
             "sum_other_doc_count" : 0,
             "buckets" : [
               {
-                "key" : "1Im8Na3HWtuTBu7D8s38ZFcTGuY5bspEIwGBD4dd",
-                "doc_count" : 41,
+                "key" : "MK2cGPxJP5EDPSGg",
+                "doc_count" : 36,
                 "max-time" : {
-                  "value" : 1.583310241458E12,
-                  "value_as_string" : "2020-03-04T08:24:01.458Z"
+                  "value" : 1.588245490139E12,
+                  "value_as_string" : "2020-04-30T11:18:10.139Z"
                 },
                 "min-time" : {
-                  "value" : 1.583310137466E12,
-                  "value_as_string" : "2020-03-04T08:22:17.466Z"
+                  "value" : 1.588245473105E12,
+                  "value_as_string" : "2020-04-30T11:17:53.105Z"
                 },
                 "url" : {
                   "doc_count_error_upper_bound" : 0,
                   "sum_other_doc_count" : 0,
                   "buckets" : [
                     {
-                      "key" : "/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed",
-                      "doc_count" : 11
+                      "key" : "LiquidityByBanksWidgetContent",
+                      "doc_count" : 6
                     },
                     {
-                      "key" : "/balances/today/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
-                      "doc_count" : 9
+                      "key" : "balancesByCurrencies",
+                      "doc_count" : 6
                     },
                     {
-                      "key" : "/openPayments/creditDebits",
-                      "doc_count" : 9
+                      "key" : "BalancesListWidgetContent",
+                      "doc_count" : 4
                     },
                     {
-                      "key" : "/summary",
-                      "doc_count" : 9
+                      "key" : "LiquidityByCurrenciesWidgetContent",
+                      "doc_count" : 4
                     },
                     {
-                      "key" : "/config",
-                      "doc_count" : 1
+                      "key" : "TransmittedPaymentsWidgetContent",
+                      "doc_count" : 4
                     },
                     {
-                      "key" : "/paymentCreation/beneficiaries/",
-                      "doc_count" : 1
+                      "key" : "balancesColumn",
+                      "doc_count" : 2
                     },
                     {
-                      "key" : "/paymentCreation/remitterAccounts/",
-                      "doc_count" : 1
+                      "key" : "favouriteViews",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "openPayments",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "paymentEntry",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "summary",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "transactionByDate",
+                      "doc_count" : 2
                     }
                   ]
                 }
               },
               {
-                "key" : "51cpsIw8UfwxYUcrbQsbzjF562NdkSZfjSk0paf7",
-                "doc_count" : 4,
+                "key" : "dKRp9TezNQTI1wl1",
+                "doc_count" : 36,
                 "max-time" : {
-                  "value" : 1.583309913053E12,
-                  "value_as_string" : "2020-03-04T08:18:33.053Z"
+                  "value" : 1.588245524321E12,
+                  "value_as_string" : "2020-04-30T11:18:44.321Z"
                 },
                 "min-time" : {
-                  "value" : 1.583309912942E12,
-                  "value_as_string" : "2020-03-04T08:18:32.942Z"
+                  "value" : 1.588245507279E12,
+                  "value_as_string" : "2020-04-30T11:18:27.279Z"
                 },
                 "url" : {
                   "doc_count_error_upper_bound" : 0,
                   "sum_other_doc_count" : 0,
                   "buckets" : [
                     {
-                      "key" : "/balances/today/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
-                      "doc_count" : 1
+                      "key" : "BalancesListWidgetContent",
+                      "doc_count" : 8
                     },
                     {
-                      "key" : "/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed",
-                      "doc_count" : 1
+                      "key" : "openPayments",
+                      "doc_count" : 6
                     },
                     {
-                      "key" : "/openPayments/creditDebits",
-                      "doc_count" : 1
+                      "key" : "LiquidityByAccountsWidgetContent",
+                      "doc_count" : 4
                     },
                     {
-                      "key" : "/summary",
-                      "doc_count" : 1
+                      "key" : "balancesByCurrencies",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "favouriteViews",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "IncomingTransactionsWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "LiquidityByBanksWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "TransmittedPaymentsWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "summary",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "transactionByDate",
+                      "doc_count" : 2
                     }
                   ]
                 }
-              }
-            ]
-          }
-        },
-        {
-          "key" : "17:SchusterL",
-          "doc_count" : 34,
-          "sessionid" : {
-            "doc_count_error_upper_bound" : 0,
-            "sum_other_doc_count" : 0,
-            "buckets" : [
+              },
               {
-                "key" : "QN5xIa08v7_zBRmGwIJaw6OQ2V2pJe8nk29Xe1-f",
+                "key" : "D4yyR8XjA8ykm2XA",
+                "doc_count" : 34,
+                "max-time" : {
+                  "value" : 1.588245591884E12,
+                  "value_as_string" : "2020-04-30T11:19:51.884Z"
+                },
+                "min-time" : {
+                  "value" : 1.588245575836E12,
+                  "value_as_string" : "2020-04-30T11:19:35.836Z"
+                },
+                "url" : {
+                  "doc_count_error_upper_bound" : 0,
+                  "sum_other_doc_count" : 0,
+                  "buckets" : [
+                    {
+                      "key" : "LiquidityByBanksWidgetContent",
+                      "doc_count" : 8
+                    },
+                    {
+                      "key" : "BalancesListWidgetContent",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "IncomingTransactionsWidgetContent",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "LiquidityByAccountsWidgetContent",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "LiquidityByAccountGroupsWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "TransmittedPaymentsWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "balancesColumn",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "favouriteViews",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "paymentEntry",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "summary",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "transactionByDate",
+                      "doc_count" : 2
+                    }
+                  ]
+                }
+              },
+              {
+                "key" : "QFZLvEK7LwiSROwh",
+                "doc_count" : 32,
+                "max-time" : {
+                  "value" : 1.588245544492E12,
+                  "value_as_string" : "2020-04-30T11:19:04.492Z"
+                },
+                "min-time" : {
+                  "value" : 1.588245529449E12,
+                  "value_as_string" : "2020-04-30T11:18:49.449Z"
+                },
+                "url" : {
+                  "doc_count_error_upper_bound" : 0,
+                  "sum_other_doc_count" : 0,
+                  "buckets" : [
+                    {
+                      "key" : "LiquidityByBanksWidgetContent",
+                      "doc_count" : 8
+                    },
+                    {
+                      "key" : "openPayments",
+                      "doc_count" : 6
+                    },
+                    {
+                      "key" : "BalancesListWidgetContent",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "LiquidityByAccountGroupsWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "LiquidityByAccountsWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "TransmittedPaymentsWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "favouriteViews",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "paymentEntry",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "summary",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "transactionByDate",
+                      "doc_count" : 2
+                    }
+                  ]
+                }
+              },
+              {
+                "key" : "r0LIYuuJrsuG460k",
+                "doc_count" : 32,
+                "max-time" : {
+                  "value" : 1.588245506227E12,
+                  "value_as_string" : "2020-04-30T11:18:26.227Z"
+                },
+                "min-time" : {
+                  "value" : 1.588245491199E12,
+                  "value_as_string" : "2020-04-30T11:18:11.199Z"
+                },
+                "url" : {
+                  "doc_count_error_upper_bound" : 0,
+                  "sum_other_doc_count" : 0,
+                  "buckets" : [
+                    {
+                      "key" : "LiquidityByBanksWidgetContent",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "balancesByCurrencies",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "balancesColumn",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "favouriteViews",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "transactionByDate",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "BalancesListWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "LiquidityByAccountGroupsWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "LiquidityByCurrenciesWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "TransmittedPaymentsWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "paymentEntry",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "summary",
+                      "doc_count" : 2
+                    }
+                  ]
+                }
+              },
+              {
+                "key" : "dlOa56xuU8pgTftq",
+                "doc_count" : 28,
+                "max-time" : {
+                  "value" : 1.588245569676E12,
+                  "value_as_string" : "2020-04-30T11:19:29.676Z"
+                },
+                "min-time" : {
+                  "value" : 1.588245556647E12,
+                  "value_as_string" : "2020-04-30T11:19:16.647Z"
+                },
+                "url" : {
+                  "doc_count_error_upper_bound" : 0,
+                  "sum_other_doc_count" : 0,
+                  "buckets" : [
+                    {
+                      "key" : "BalancesListWidgetContent",
+                      "doc_count" : 6
+                    },
+                    {
+                      "key" : "LiquidityByBanksWidgetContent",
+                      "doc_count" : 6
+                    },
+                    {
+                      "key" : "TransmittedPaymentsWidgetContent",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "openPayments",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "IncomingTransactionsWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "LiquidityByAccountGroupsWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "balancesByCurrencies",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "paymentEntry",
+                      "doc_count" : 2
+                    }
+                  ]
+                }
+              },
+              {
+                "key" : "dajKUzvIzHm3tNY9",
+                "doc_count" : 24,
+                "max-time" : {
+                  "value" : 1.588245608045E12,
+                  "value_as_string" : "2020-04-30T11:20:08.045Z"
+                },
+                "min-time" : {
+                  "value" : 1.588245597012E12,
+                  "value_as_string" : "2020-04-30T11:19:57.012Z"
+                },
+                "url" : {
+                  "doc_count_error_upper_bound" : 0,
+                  "sum_other_doc_count" : 0,
+                  "buckets" : [
+                    {
+                      "key" : "TransmittedPaymentsWidgetContent",
+                      "doc_count" : 6
+                    },
+                    {
+                      "key" : "LiquidityByAccountGroupsWidgetContent",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "LiquidityByBanksWidgetContent",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "LiquidityByCurrenciesWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "favouriteViews",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "paymentEntry",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "summary",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "transactionByDate",
+                      "doc_count" : 2
+                    }
+                  ]
+                }
+              },
+              {
+                "key" : "y52Ii8r1L8SE4MKM",
+                "doc_count" : 22,
+                "max-time" : {
+                  "value" : 1.588245555583E12,
+                  "value_as_string" : "2020-04-30T11:19:15.583Z"
+                },
+                "min-time" : {
+                  "value" : 1.588245545562E12,
+                  "value_as_string" : "2020-04-30T11:19:05.562Z"
+                },
+                "url" : {
+                  "doc_count_error_upper_bound" : 0,
+                  "sum_other_doc_count" : 0,
+                  "buckets" : [
+                    {
+                      "key" : "LiquidityByBanksWidgetContent",
+                      "doc_count" : 10
+                    },
+                    {
+                      "key" : "transactionByDate",
+                      "doc_count" : 4
+                    },
+                    {
+                      "key" : "BalancesListWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "LiquidityByAccountsWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "LiquidityByCurrenciesWidgetContent",
+                      "doc_count" : 2
+                    },
+                    {
+                      "key" : "balancesColumn",
+                      "doc_count" : 2
+                    }
+                  ]
+                }
+              },
+              {
+                "key" : "PAM3x5PWpEXabOFZ",
                 "doc_count" : 10,
                 "max-time" : {
-                  "value" : 1.582022688552E12,
-                  "value_as_string" : "2020-02-18T10:44:48.552Z"
+                  "value" : 1.588245574774E12,
+                  "value_as_string" : "2020-04-30T11:19:34.774Z"
                 },
                 "min-time" : {
-                  "value" : 1.582022676759E12,
-                  "value_as_string" : "2020-02-18T10:44:36.759Z"
+                  "value" : 1.588245570758E12,
+                  "value_as_string" : "2020-04-30T11:19:30.758Z"
                 },
                 "url" : {
                   "doc_count_error_upper_bound" : 0,
                   "sum_other_doc_count" : 0,
                   "buckets" : [
                     {
-                      "key" : "/balances/currencies/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
-                      "doc_count" : 1
+                      "key" : "openPayments",
+                      "doc_count" : 4
                     },
                     {
-                      "key" : "/balances/list/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
-                      "doc_count" : 1
+                      "key" : "balancesColumn",
+                      "doc_count" : 2
                     },
                     {
-                      "key" : "/balances/today/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
-                      "doc_count" : 1
+                      "key" : "summary",
+                      "doc_count" : 2
                     },
                     {
-                      "key" : "/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/config",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/creditsAndDebits/id/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactionsMainListReport",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/fx",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/incomingTransactions/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactions_last7days",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/openPayments/creditDebits",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/summary",
-                      "doc_count" : 1
+                      "key" : "transactionByDate",
+                      "doc_count" : 2
                     }
                   ]
                 }
               },
               {
-                "key" : "MCM_CqexqC84BfDJRtXPWZRePTbKfY-7tywAHm4W",
+                "key" : "0UJN5llNHoZY9BXG",
                 "doc_count" : 8,
                 "max-time" : {
-                  "value" : 1.582022704795E12,
-                  "value_as_string" : "2020-02-18T10:45:04.795Z"
+                  "value" : 1.58824552839E12,
+                  "value_as_string" : "2020-04-30T11:18:48.390Z"
                 },
                 "min-time" : {
-                  "value" : 1.582022703341E12,
-                  "value_as_string" : "2020-02-18T10:45:03.341Z"
+                  "value" : 1.588245525378E12,
+                  "value_as_string" : "2020-04-30T11:18:45.378Z"
                 },
                 "url" : {
                   "doc_count_error_upper_bound" : 0,
                   "sum_other_doc_count" : 0,
                   "buckets" : [
                     {
-                      "key" : "/balances/currencies/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
-                      "doc_count" : 1
+                      "key" : "BalancesListWidgetContent",
+                      "doc_count" : 2
                     },
                     {
-                      "key" : "/balances/list/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
-                      "doc_count" : 1
+                      "key" : "balancesColumn",
+                      "doc_count" : 2
                     },
                     {
-                      "key" : "/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed",
-                      "doc_count" : 1
+                      "key" : "summary",
+                      "doc_count" : 2
                     },
                     {
-                      "key" : "/creditsAndDebits/id/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactionsMainListReport",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/fx",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/incomingTransactions/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactions_last7days",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/openPayments/creditDebits",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/summary",
-                      "doc_count" : 1
+                      "key" : "transactionByDate",
+                      "doc_count" : 2
                     }
                   ]
                 }
               },
               {
-                "key" : "T59ahKDMs5RAFqoGIJwcxK_elvdNj023LPSxBuPe",
+                "key" : "JmXafi4VG687dWfE",
                 "doc_count" : 8,
                 "max-time" : {
-                  "value" : 1.582030937539E12,
-                  "value_as_string" : "2020-02-18T13:02:17.539Z"
+                  "value" : 1.588245595954E12,
+                  "value_as_string" : "2020-04-30T11:19:55.954Z"
                 },
                 "min-time" : {
-                  "value" : 1.582030936816E12,
-                  "value_as_string" : "2020-02-18T13:02:16.816Z"
+                  "value" : 1.588245592946E12,
+                  "value_as_string" : "2020-04-30T11:19:52.946Z"
                 },
                 "url" : {
                   "doc_count_error_upper_bound" : 0,
                   "sum_other_doc_count" : 0,
                   "buckets" : [
                     {
-                      "key" : "/balances/currencies/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
-                      "doc_count" : 1
+                      "key" : "LiquidityByAccountsWidgetContent",
+                      "doc_count" : 2
                     },
                     {
-                      "key" : "/balances/list/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
-                      "doc_count" : 1
+                      "key" : "paymentEntry",
+                      "doc_count" : 2
                     },
                     {
-                      "key" : "/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed",
-                      "doc_count" : 1
+                      "key" : "summary",
+                      "doc_count" : 2
                     },
                     {
-                      "key" : "/creditsAndDebits/id/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactionsMainListReport",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/fx",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/incomingTransactions/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactions_last7days",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/openPayments/creditDebits",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/summary",
-                      "doc_count" : 1
-                    }
-                  ]
-                }
-              },
-              {
-                "key" : "ovUbCRy3NYA01YXMdo6MtsoyPCwP7wYPFLi_Fbns",
-                "doc_count" : 8,
-                "max-time" : {
-                  "value" : 1.582027491091E12,
-                  "value_as_string" : "2020-02-18T12:04:51.091Z"
-                },
-                "min-time" : {
-                  "value" : 1.582027489766E12,
-                  "value_as_string" : "2020-02-18T12:04:49.766Z"
-                },
-                "url" : {
-                  "doc_count_error_upper_bound" : 0,
-                  "sum_other_doc_count" : 0,
-                  "buckets" : [
-                    {
-                      "key" : "/balances/currencies/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/balances/list/id/ecm.reporting.balance.overview-0-ecm.reporting.balance.overview.intradayReportsView",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/completedPayments/pao.transmittedPayments-0-pao.guiList.view.completed",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/creditsAndDebits/id/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactionsMainListReport",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/fx",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/incomingTransactions/ecm.reporting.transactions.mainList-0-ecm.reporting.transactions.mainList.view.allTransactions_last7days",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/openPayments/creditDebits",
-                      "doc_count" : 1
-                    },
-                    {
-                      "key" : "/summary",
-                      "doc_count" : 1
+                      "key" : "transactionByDate",
+                      "doc_count" : 2
                     }
                   ]
                 }

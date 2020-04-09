@@ -1,16 +1,53 @@
-\section{Grundlagen}
+\section{Grundlagen}\raggedbottom
 
 \subsection{Syntax der Logeinträge}
 \label{sub:Aufbau der Logeinträge}
+Das IFP generiert bei seiner Benutzung mehrere verschiedene Logfiles. Je nach Art des Logfiles können hier verschiedene Informationen gespeichert werden wie z.B. Zeitstempel, UserIDs, Exception Messages usw. Da für diese Arbeit aber nur die sog. \glqq Sessionlogs\grqq{} relavant sind, soll auch nur deren Syntax beschrieben werden.\\
+Die Einträge in den Sessionlogs spiegeln im Großen und Ganzen die Serveraktivität wieder: Es werden ein- und ausgehende HTTP Requests fest gehalten. Allerdings reicht es nicht nur eine Liste von Requests zu speichern. Sie müssen noch in einen gewissen Kontext gebracht werden. Deshalb werden zusätzlich zu den Requests auch Daten wie Zeitstempel, UserID, Parameter u.s.w. geloggt. Durch diese Informationen kann man nun nachvollziehen, wer wann welche Daten gesendet bzw. angefragt hat. Neben der UserID wird auch die SessionID mit geloggt. Sobald sich ein User erfolgreich in das IFP einloggt wird eine SessionID generiert. Diese SessionID ist vom Zeitpunkt des Logins bis zum Logout gültig. Möchte sich der selbe User nach dem Logout direkt noch einmal einloggen wird eine neue SessionID generiert. Die folgende Abbildung zeigt die die Requests, die beim Login Prozess geloggt werden: (ABB:LOGin-SESSIONLOG)
+\\
+Man erkennt schnell, dass man die Einträge in den Logfiles grob in die folgenden Felder unterteilen kann:\\
+\begin{table}[htb]
+	\begin{center}
+		\begin{tabular}{lllllll}
+			[Timestamp]&[Loglevel]&[SessionID]&[CustomerID]&[UserID]&[TaskID]&[HTTP Request]
+		\end{tabular}
+		\caption{Felder in Sessionlog Eintrag}
+		\label{tab_session_fields}
+	\end{center}
+\end{table}
+
+Da nun die Syntax der Einträge erkannt wurde kann die Mustererkennung beginnen.
+
 
 \subsection{Mustererkennung}
 \label{sub:Mustererkennung}
+	Generell kann man in vielen verschiedenen Medien Muster erkennen, wie z.B. Bilddateien, Musikdateien oder eben in Textdateien. Dabei kommt es im Wesentlichen drauf an, welche Muster man erkennen möchte. So könnte man einem Programm beibringen, bestimmte Fischarten auf Fotos zu erkennen \citep{DuHaSt01}. Ein Ansatz, das Problem der Mustererkennung zu lösen, ist es, das Problem in folgende Teilprobleme aufzuteilen (Zitat anderes buch):
+\begin{enumerate}
+	\item Segmentiereung
+	\item Feature Extraction
+	\item Klassifizierung
+\end{enumerate}
+Im folgenden wird dieses generelle Vorgehen auf die Einträge der Logfiles angewandt.
 
 \subsubsection{Segmentierung (bestimmung der relevanten felder)}
 \label{ssub:Segmentierung}
 
+In dem Schritt der Segmentierung wollen wir feststellen, welche Informationen aus den Logfiles für die Fragestellung relevant sind. Greifen wir dafür zunächst einmal die Definition aus der Einleitung auf, was es bedeutet ein Widget zu benutzen. Wie bereits erwähnt reicht ein pures Anzeigen von Informationen nicht aus; das Widget muss auch angeklickt werden. Ein Klick auf ein Widget hat i.d.R. immer den selben Effekt: man wird auf eine (evtl. vorgefilterte) Seite weiter geleitet. Das heißt, man sendet einen HTTP Request an den Server und der Server sendet eine Antwort. Also ist es offensichtlich, dass wir für unsere Analyse nur die HTTP Requests betrachten wollen und die Server Antworten irrelevant sind. Demnach sind wir nur an Einträgen interessiert, die in dem Feld [HTTP Request] aus Tabelle \ref{tab_session_fields} mit \textit{Incoming Request} anfangen. Dadurch haben wir die Menge an Einträgen, die wir betrachten wollen schonmal um ca. die Hälfte reduziert.\\
+Betrachten wir nun den Rest des Feldes genauer anhand eines Beispieleintrags, in dem ein Widget benutzt wurde. Insbesondere die URL ist für uns von Interesse:\\
+\textit{/MULTIVERSA-IFP/lightning/ecm/liquidity/banks/liquidity\_banks.jsf?selectedView=ecm.liquidity.banks.view.all\&viewType=0\&\redt{widget=LiquidityByBanksWidgetContent}\&banks=RpBLVhy85c5u4nGKeISH0A\&conversationContext=3\&\_ns\_=f63a91bc-9ab1-472d-bcb0-b6771837ffaa3\&\_nc\_=}\\
+Der Name des Widgets ist in der URL erkennbar, wie man hier rot markiert erkennen kann.\\
+Neben dem HTTP Request sind diese weiteren Felder von Relevanz:
+\begin{itemize}
+	\item [Timestamp]
+	\item [SessionID]
+	\item [UserID]
+\end{itemize}
+
 \subsubsection{Feature extraction (transformation der daten)}
-\label{ssub:Feature extraction}
+\label{ssub:Feature_extraction}
+Nachdem alle irrelevanten Daten in der Segmentierung eliminiert wurden, ist der nächste Schritt die feature extraction. Dieser Begriff könnte irreführend wirken, da in dieser Arbeit keine features extrahiert werden, vielmehr werden die Daten in eine bestimmte Struktur transfomiert. Diese Struktur besteht aus drei Mengen, die Menge an usern, die Menge an Session ID's und die Menge an Widgets. Diese Struktur wird von nun an session entity genannt. Eine session entity hat eine eindeutige user ID, eine eindeutige session id und eine Menge an widgets, die in dieser session benutzt wurden. Mit anderen Worten, beinhaltet eine session entity die Informationen welche Widgets in einer session benutzt wurden. Abbildung X soll diesen Zusammenhang verdeutlichen.\\
+Zusätzlich wird zu der Information, welche Widgets benutzt wurden noch festgehalten, zu welchem Zeitpunklt bzw. in welcher Reihenfolge sie benutzt wurden.
+%Prinzipiell gäbe es noch die Menge an time stamps, nach diesen wird aber nicht sortiert.
 
 \subsubsection{Klassifizierung}
 \label{ssub:Klassifizierung}

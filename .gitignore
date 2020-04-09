@@ -1,5 +1,6 @@
 gpush.sh
 *.swp
+*.lol
 *.toc
 *.gz
 *.xml
@@ -14,3 +15,4 @@ latex/ba.log
 *.bbl
 *.bcf
 latex/ba.pdf
+*.DS_Store

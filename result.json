@@ -1,0 +1,389 @@
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 190,
+      "relation" : "eq"
+    },
+    "max_score" : null,
+    "hits" : [
+      {
+        "_index" : "logstash",
+        "_type" : "_doc",
+        "_id" : "PLph6HABpUOajlsDipLo",
+        "_score" : null,
+        "_source" : {
+          "useragent" : "userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=68\nParameters:\n\twidget = LiquidityByAccountGroupsWidgetContent\n\tviewType = 0\n\tselectedView = ecm.liquidity.accountGroups.view.all",
+          "request" : "Incoming request",
+          "widget" : {
+            "widget" : "LiquidityByAccountGroupsWidgetContent"
+          },
+          "log" : {
+            "offset" : 96014,
+            "file" : {
+              "path" : "/Users/markusstroh/Downloads/multiversa-/multiversa-session.log.2020-03-11.log"
+            },
+            "flags" : [
+              "multiline"
+            ]
+          },
+          "url" : "/MULTIVERSA-IFP/lightning/ecm/liquidity/accountGroups/liquidity_account_groups.jsf",
+          "sessionid" : "tDuqjRGF0mjX9gMM0tIEh3GCj97AFS5YuzvKlkw9",
+          "zeit" : "2020-03-11 12:30:49.434",
+          "input" : {
+            "type" : "log"
+          },
+          "tags" : [
+            "beats_input_codec_plain_applied"
+          ],
+          "userid" : "17:SchusterL_JSS",
+          "@timestamp" : "2020-03-11T11:30:49.434Z",
+          "request_type" : "GET"
+        },
+        "sort" : [
+          1583926249434
+        ]
+      },
+      {
+        "_index" : "logstash",
+        "_type" : "_doc",
+        "_id" : "SLph6HABpUOajlsDi5LO",
+        "_score" : null,
+        "_source" : {
+          "useragent" : "userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=71\nParameters:\n\tconversationContext = 9\n\twidget = LiquidityByAccountGroupsWidgetContent\n\t_nc_ = \n\t_ns_ = 98329030-b55f-41e3-8479-2e9c2acff1f99\n\tviewType = 0\n\tselectedView = ecm.liquidity.accountGroups.view.all",
+          "request" : "Incoming request",
+          "widget" : {
+            "widget" : "LiquidityByAccountGroupsWidgetContent"
+          },
+          "log" : {
+            "offset" : 97115,
+            "file" : {
+              "path" : "/Users/markusstroh/Downloads/multiversa-/multiversa-session.log.2020-03-11.log"
+            },
+            "flags" : [
+              "multiline"
+            ]
+          },
+          "url" : "/MULTIVERSA-IFP/lightning/ecm/liquidity/accountGroups/liquidity_account_groups.jsf",
+          "sessionid" : "tDuqjRGF0mjX9gMM0tIEh3GCj97AFS5YuzvKlkw9",
+          "zeit" : "2020-03-11 12:30:49.475",
+          "input" : {
+            "type" : "log"
+          },
+          "tags" : [
+            "beats_input_codec_plain_applied"
+          ],
+          "userid" : "17:SchusterL_JSS",
+          "@timestamp" : "2020-03-11T11:30:49.475Z",
+          "request_type" : "GET"
+        },
+        "sort" : [
+          1583926249475
+        ]
+      },
+      {
+        "_index" : "logstash",
+        "_type" : "_doc",
+        "_id" : "Zbph6HABpUOajlsDjJKL",
+        "_score" : null,
+        "_source" : {
+          "useragent" : "userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=57\nParameters:\n\twidget = balancesByCurrencies\n\tviewType = 0\n\tselectedView = ecm.reporting.balance.overview.intradayReportsView",
+          "request" : "Incoming request",
+          "widget" : {
+            "widget" : "balancesByCurrencies"
+          },
+          "log" : {
+            "offset" : 410019,
+            "file" : {
+              "path" : "/Users/markusstroh/Downloads/multiversa-/multiversa-session.log.2020-03-11.log"
+            },
+            "flags" : [
+              "multiline"
+            ]
+          },
+          "url" : "/MULTIVERSA-IFP/lightning/reporting/balance/balance_overview.jsf",
+          "sessionid" : "3pXHX9kv_i46DUrzyBPj820hxoKgXqrOLKmHHlsF",
+          "zeit" : "2020-03-11 14:05:21.675",
+          "input" : {
+            "type" : "log"
+          },
+          "tags" : [
+            "beats_input_codec_plain_applied"
+          ],
+          "userid" : "17:SchusterL_JSS",
+          "@timestamp" : "2020-03-11T13:05:21.675Z",
+          "request_type" : "GET"
+        },
+        "sort" : [
+          1583931921675
+        ]
+      },
+      {
+        "_index" : "logstash",
+        "_type" : "_doc",
+        "_id" : "Zrph6HABpUOajlsDjJKM",
+        "_score" : null,
+        "_source" : {
+          "useragent" : "userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=52\nParameters:\n\tconversationContext = 6\n\twidget = balancesByCurrencies\n\t_nc_ = \n\t_ns_ = 9ca7097e-5b1f-46c1-9e14-07fea942b9bc5\n\tviewType = 0\n\tselectedView = ecm.reporting.balance.overview.intradayReportsView",
+          "request" : "Incoming request",
+          "widget" : {
+            "widget" : "balancesByCurrencies"
+          },
+          "log" : {
+            "offset" : 411077,
+            "file" : {
+              "path" : "/Users/markusstroh/Downloads/multiversa-/multiversa-session.log.2020-03-11.log"
+            },
+            "flags" : [
+              "multiline"
+            ]
+          },
+          "url" : "/MULTIVERSA-IFP/lightning/reporting/balance/balance_overview.jsf",
+          "sessionid" : "3pXHX9kv_i46DUrzyBPj820hxoKgXqrOLKmHHlsF",
+          "zeit" : "2020-03-11 14:05:21.895",
+          "input" : {
+            "type" : "log"
+          },
+          "tags" : [
+            "beats_input_codec_plain_applied"
+          ],
+          "userid" : "17:SchusterL_JSS",
+          "@timestamp" : "2020-03-11T13:05:21.895Z",
+          "request_type" : "GET"
+        },
+        "sort" : [
+          1583931921895
+        ]
+      },
+      {
+        "_index" : "logstash",
+        "_type" : "_doc",
+        "_id" : "arph6HABpUOajlsDjJKQ",
+        "_score" : null,
+        "_source" : {
+          "useragent" : "userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=49\nParameters:\n\twidget = balancesColumn\n\tviewType = 0\n\tselectedView = ecm.reporting.balance.overview.intradayReportsView",
+          "request" : "Incoming request",
+          "widget" : {
+            "widget" : "balancesColumn"
+          },
+          "log" : {
+            "offset" : 454872,
+            "file" : {
+              "path" : "/Users/markusstroh/Downloads/multiversa-/multiversa-session.log.2020-03-11.log"
+            },
+            "flags" : [
+              "multiline"
+            ]
+          },
+          "url" : "/MULTIVERSA-IFP/lightning/reporting/balance/balance_overview.jsf",
+          "sessionid" : "3pXHX9kv_i46DUrzyBPj820hxoKgXqrOLKmHHlsF",
+          "zeit" : "2020-03-11 14:07:24.840",
+          "input" : {
+            "type" : "log"
+          },
+          "tags" : [
+            "beats_input_codec_plain_applied"
+          ],
+          "userid" : "17:SchusterL_JSS",
+          "@timestamp" : "2020-03-11T13:07:24.840Z",
+          "request_type" : "GET"
+        },
+        "sort" : [
+          1583932044840
+        ]
+      },
+      {
+        "_index" : "logstash",
+        "_type" : "_doc",
+        "_id" : "a7ph6HABpUOajlsDjJKd",
+        "_score" : null,
+        "_source" : {
+          "useragent" : "userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=43\nParameters:\n\tconversationContext = f\n\twidget = balancesColumn\n\t_nc_ = \n\t_ns_ = 9ca7097e-5b1f-46c1-9e14-07fea942b9bc14\n\tviewType = 0\n\tselectedView = ecm.reporting.balance.overview.intradayReportsView",
+          "request" : "Incoming request",
+          "widget" : {
+            "widget" : "balancesColumn"
+          },
+          "log" : {
+            "offset" : 455910,
+            "file" : {
+              "path" : "/Users/markusstroh/Downloads/multiversa-/multiversa-session.log.2020-03-11.log"
+            },
+            "flags" : [
+              "multiline"
+            ]
+          },
+          "url" : "/MULTIVERSA-IFP/lightning/reporting/balance/balance_overview.jsf",
+          "sessionid" : "3pXHX9kv_i46DUrzyBPj820hxoKgXqrOLKmHHlsF",
+          "zeit" : "2020-03-11 14:07:24.855",
+          "input" : {
+            "type" : "log"
+          },
+          "tags" : [
+            "beats_input_codec_plain_applied"
+          ],
+          "userid" : "17:SchusterL_JSS",
+          "@timestamp" : "2020-03-11T13:07:24.855Z",
+          "request_type" : "GET"
+        },
+        "sort" : [
+          1583932044855
+        ]
+      },
+      {
+        "_index" : "logstash",
+        "_type" : "_doc",
+        "_id" : "bLph6HABpUOajlsDjJKd",
+        "_score" : null,
+        "_source" : {
+          "useragent" : "userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=53\nParameters:\n\twidget = balancesColumn\n\tviewType = 0\n\tselectedView = ecm.reporting.balance.overview.intradayReportsView",
+          "request" : "Incoming request",
+          "widget" : {
+            "widget" : "balancesColumn"
+          },
+          "log" : {
+            "offset" : 469788,
+            "file" : {
+              "path" : "/Users/markusstroh/Downloads/multiversa-/multiversa-session.log.2020-03-11.log"
+            },
+            "flags" : [
+              "multiline"
+            ]
+          },
+          "url" : "/MULTIVERSA-IFP/lightning/reporting/balance/balance_overview.jsf",
+          "sessionid" : "3pXHX9kv_i46DUrzyBPj820hxoKgXqrOLKmHHlsF",
+          "zeit" : "2020-03-11 14:07:55.425",
+          "input" : {
+            "type" : "log"
+          },
+          "tags" : [
+            "beats_input_codec_plain_applied"
+          ],
+          "userid" : "17:SchusterL_JSS",
+          "@timestamp" : "2020-03-11T13:07:55.425Z",
+          "request_type" : "GET"
+        },
+        "sort" : [
+          1583932075425
+        ]
+      },
+      {
+        "_index" : "logstash",
+        "_type" : "_doc",
+        "_id" : "bbph6HABpUOajlsDjJKd",
+        "_score" : null,
+        "_source" : {
+          "useragent" : "userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=51\nParameters:\n\tconversationContext = i\n\twidget = balancesColumn\n\t_nc_ = \n\t_ns_ = 9ca7097e-5b1f-46c1-9e14-07fea942b9bc17\n\tviewType = 0\n\tselectedView = ecm.reporting.balance.overview.intradayReportsView",
+          "request" : "Incoming request",
+          "widget" : {
+            "widget" : "balancesColumn"
+          },
+          "log" : {
+            "offset" : 470826,
+            "file" : {
+              "path" : "/Users/markusstroh/Downloads/multiversa-/multiversa-session.log.2020-03-11.log"
+            },
+            "flags" : [
+              "multiline"
+            ]
+          },
+          "url" : "/MULTIVERSA-IFP/lightning/reporting/balance/balance_overview.jsf",
+          "sessionid" : "3pXHX9kv_i46DUrzyBPj820hxoKgXqrOLKmHHlsF",
+          "zeit" : "2020-03-11 14:07:55.445",
+          "input" : {
+            "type" : "log"
+          },
+          "tags" : [
+            "beats_input_codec_plain_applied"
+          ],
+          "userid" : "17:SchusterL_JSS",
+          "@timestamp" : "2020-03-11T13:07:55.445Z",
+          "request_type" : "GET"
+        },
+        "sort" : [
+          1583932075445
+        ]
+      },
+      {
+        "_index" : "logstash",
+        "_type" : "_doc",
+        "_id" : "hbph6HABpUOajlsDjZIH",
+        "_score" : null,
+        "_source" : {
+          "useragent" : "userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=57\nParameters:\n\twidget = balancesByCurrencies\n\tviewType = 0\n\tselectedView = ecm.reporting.balance.overview.intradayReportsView",
+          "request" : "Incoming request",
+          "widget" : {
+            "widget" : "balancesByCurrencies"
+          },
+          "log" : {
+            "offset" : 642230,
+            "file" : {
+              "path" : "/Users/markusstroh/Downloads/multiversa-/multiversa-session.log.2020-03-11.log"
+            },
+            "flags" : [
+              "multiline"
+            ]
+          },
+          "url" : "/MULTIVERSA-IFP/lightning/reporting/balance/balance_overview.jsf",
+          "sessionid" : "gTOIEBy5mFvKPYNdeXZc-meVU6kaueJC5PyxS-fE",
+          "zeit" : "2020-03-11 15:18:22.167",
+          "input" : {
+            "type" : "log"
+          },
+          "tags" : [
+            "beats_input_codec_plain_applied"
+          ],
+          "userid" : "17:SchusterL_JSS",
+          "@timestamp" : "2020-03-11T14:18:22.167Z",
+          "request_type" : "GET"
+        },
+        "sort" : [
+          1583936302167
+        ]
+      },
+      {
+        "_index" : "logstash",
+        "_type" : "_doc",
+        "_id" : "k7ph6HABpUOajlsDjZIl",
+        "_score" : null,
+        "_source" : {
+          "useragent" : "userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=48\nParameters:\n\tconversationContext = 9\n\twidget = balancesByCurrencies\n\t_nc_ = \n\t_ns_ = 22b076a5-d6db-46dc-b702-632263da0c577\n\tviewType = 0\n\tselectedView = ecm.reporting.balance.overview.intradayReportsView",
+          "request" : "Incoming request",
+          "widget" : {
+            "widget" : "balancesByCurrencies"
+          },
+          "log" : {
+            "flags" : [
+              "multiline"
+            ],
+            "file" : {
+              "path" : "/Users/markusstroh/Downloads/multiversa-/multiversa-session.log.2020-03-11.log"
+            },
+            "offset" : 643286
+          },
+          "url" : "/MULTIVERSA-IFP/lightning/reporting/balance/balance_overview.jsf",
+          "sessionid" : "gTOIEBy5mFvKPYNdeXZc-meVU6kaueJC5PyxS-fE",
+          "zeit" : "2020-03-11 15:18:22.189",
+          "input" : {
+            "type" : "log"
+          },
+          "tags" : [
+            "beats_input_codec_plain_applied"
+          ],
+          "userid" : "17:SchusterL_JSS",
+          "@timestamp" : "2020-03-11T14:18:22.189Z",
+          "request_type" : "GET"
+        },
+        "sort" : [
+          1583936302189
+        ]
+      }
+    ]
+  }
+}

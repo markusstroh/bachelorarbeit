@@ -1,0 +1,18 @@
+{
+	"size":500,
+	"query": {
+		"match_all": {
+		}
+	},
+	"sort": [
+		{"@timestamp": "asc"}
+	],
+	"_source": {
+		"includes": ["widget.widget","sessionid"],
+		"excludes": [
+			"useragent",
+			"request",
+			"log"
+		]
+	}
+}
