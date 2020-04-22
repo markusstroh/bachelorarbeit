@@ -16,3 +16,15 @@ latex/ba.log
 *.bcf
 latex/ba.pdf
 *.DS_Store
+.idea/
+python/__pycache__
+python/venv
+test/
+
+!/filebeat/filebeat.yml
+
+/elasticsearch-7.6.1/*
+/kibana-7.6.1/*
+/filebeat-7.6.1/*
+/multiversa-/*
+
