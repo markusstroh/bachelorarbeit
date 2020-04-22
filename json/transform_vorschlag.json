@@ -3,19 +3,22 @@
   "aggs" : {
     "userid": {
       "terms": {
-        "field": "userid.keyword"
+        "field": "userid.keyword",
+		"size": 20
       }, 
       "aggs": {
         "sessionid": {
           "terms": {
-            "field": "sessionid.keyword"
+            "field": "sessionid.keyword",
+			"size": 7500
           },
           "aggs": {
             "url": {
               "terms": {
-                "field": "url.keyword"
-              }
-            },
+                "field": "widget.widget.keyword",
+				"size": 20
+			  }
+			},
             "min-time": {
               "min": {
                 "field": "@timestamp"

@@ -1,0 +1,9 @@
+{
+	"aggs": {
+		"numberOfSessions": {
+			"terms": {
+				"field": "user.sessions.id.keyword"
+			}
+		}
+	}
+}

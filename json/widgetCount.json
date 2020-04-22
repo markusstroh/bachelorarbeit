@@ -1,0 +1,25 @@
+{
+	"query": {
+		"bool": {
+			"must": [],
+			"filter": [
+				{
+					"nested": {
+						"path": "user.sessions.widget",
+						"query": {
+							"bool": {
+								"should": [
+									{
+										"match_phrase": {
+											"user.sessions.widget.url.keyword": "widgetID"
+										}
+									}
+								]
+							}
+						}
+					}
+				}
+			]
+		}
+	}
+}

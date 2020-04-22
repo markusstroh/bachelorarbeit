@@ -17,8 +17,8 @@
               "terms": {
                 "field": "widget.widget.keyword",
 				"size": 20
-              }
-            },
+			  }
+			},
             "min-time": {
               "min": {
                 "field": "@timestamp"

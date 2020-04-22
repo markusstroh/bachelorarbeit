@@ -1,18 +1,11 @@
 {
-	"size":500,
-	"query": {
-		"match_all": {
+	"size":0,
+	"aggs":{
+		"url":{
+			"terms": {
+				"field": "widget.widget.keyword",
+				"size": 20
+			}
 		}
-	},
-	"sort": [
-		{"@timestamp": "asc"}
-	],
-	"_source": {
-		"includes": ["widget.widget","sessionid"],
-		"excludes": [
-			"useragent",
-			"request",
-			"log"
-		]
 	}
 }
