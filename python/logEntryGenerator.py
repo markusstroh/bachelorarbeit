@@ -8,6 +8,7 @@ import datetime
 import random
 import argparse
 import string
+import os
 from time import sleep
 
 widgets = []
@@ -34,7 +35,7 @@ def fixedRoutine(logFile,sessionid):
     elements.append("Incoming request: GET /MULTIVERSA-IFP/lightning/reporting/balance/balance_overview.jsf?selectedView=ecm.reporting.balance.overview.intradayReportsView&viewType=0&widget=favouriteViews userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=54")
     elements.append("Incoming request: GET /MULTIVERSA-IFP/lightning/ecm/liquidity/accounts/liquidity_accounts.jsf?selectedView=ecm.liquidity.accounts.view.all&viewType=0&widget=LiquidityByAccountsWidgetContent userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=57")
     elements.append("Incoming request: GET /MULTIVERSA-IFP/lightning/reporting/balance/balance_overview.jsf?selectedView=ecm.reporting.balance.overview.intradayReportsView&viewType=0&widget=balancesByCurrencies userAgent=[Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0] device=COMPUTER processingTime=54")
-    for i in range(len(elements)-1):
+    for i in range(len(elements)):
         sleep(1) 
         date = datetime.datetime.now() + datetime.timedelta(days=daysDiff)
         trimmedDate = date.strftime("%Y-%m-%d %H:%M:%S.%f")
@@ -42,6 +43,7 @@ def fixedRoutine(logFile,sessionid):
         logFile.write(logEntry)   
         logFile.write('=========================================================\n')
         #print(logEntry)
+        print('routine written in {}'.format(sessionid))
         global routineWritten 
         routineWritten = True
 
@@ -63,13 +65,13 @@ if args.days:
    #print("set days %s" % args.days)
 
 date = datetime.datetime.now() + datetime.timedelta(days=daysDiff)
-fileName = "multiversa-/multiversa-session.log." + date.strftime("%Y-%m-%d") +".log"
+fileName = "multiversa-session.log." + date.strftime("%Y-%m-%d") +".log"
 
-logfile = open(fileName,"a")
+logfile = open(os.path.realpath('.') + '/multiversa-/' + fileName,"a+")
 sessionid = generateSessionid()
 
 k = random.randint(1,20)
-print(k)
+#print(k)
 for i in range(k): 
     sleep(1)
     date = datetime.datetime.now() + datetime.timedelta(days=daysDiff)
@@ -78,7 +80,7 @@ for i in range(k):
     logEntry = '{}\tINFO\t[{}]\t[Trade_Group]\t[17:demostroh]\t[default task-39]\t{}\n'.format(trimmedDate[:-3],sessionid,widgets[arrayPos])
     j = random.randint(0,10)
     if (j != 0 and i != 0 and i % j == 0 and  args.fixedRoutine and not routineWritten):
-        print(i)
+        #print(i)
         #print(routineWritten)
         fixedRoutine(logfile,sessionid)
         #print(routineWritten)
@@ -94,8 +96,9 @@ for i in range(k):
 #fixedoutine(routine,f)
 
 if (args.fixedRoutine and not routineWritten):
-    print("JAWOLL ALDER")
+    #print("JAWOLL ALDER")
     fixedRoutine(logfile,sessionid)
+    print('at the end')
 logfile.close()
 
 
