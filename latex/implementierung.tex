@@ -5,7 +5,7 @@
 \label{sub:Datengenerierung}
 
 Die zur Analyse genutzten Daten sind keine tatsächlichen Kundendaten, sondern wurden zum Zweck dieser Abschlussarbeit generiert.
-Zur Generierung der Daten wurde ein Python Script benutzt. Das war notwendig, da in der aktuellen Version des IFP's die Widgetnamen nicht festgehalten werden. Dies war notwendig, da man in der aktuellen Implementierung nicht alle Widgets anhand der Logdateien erkennen kann. Selbst bei einer schnellen Auslieferung, wäre der Zeitraum zu klein, um genügend Kundendaten zu sammeln. Mithilfe eines Python und Bash Scripts wurden zufällig generierte Logfiles für einen Zeitraum von X generiert. 
+Zur Generierung der Daten wurde ein Python Script benutzt. Das war notwendig, da in der aktuellen Version des IFPs die Widgetnamen nicht festgehalten werden und man in der aktuellen Implementierung nicht alle Widgets anhand der Logdateien erkennen kann. Selbst bei einer schnellen Auslieferung wäre der Zeitraum zu klein, um genügend Kundendaten zu sammeln. Mithilfe eines Python und Bash Scripts wurden zufällig generierte Logfiles für einen Zeitraum von X generiert. 
 
 \subsection{Grundlagen zum Elastic Stack}
 \label{sub:Grundlagen zum Elastic Stack}
@@ -13,7 +13,7 @@ Um die Fragen aus der Problemstellung zu beantworten, wurde der Elastic Stack (E
 
 \begin{figure}[htb]
 \begin{center}
-	\includegraphics[width=430pt]{bilder/workflow.png}
+	\includegraphics[width=440pt]{bilder/workflow.png}
 \end{center}
 \caption{ELK Workflow}
 \label{fig:elk_workflow}
@@ -22,17 +22,17 @@ Um die Fragen aus der Problemstellung zu beantworten, wurde der Elastic Stack (E
 
 \subsubsection{Filebeat}
 \label{ssub:Filebeat}
-Mit Filebeat können Dateien zeilenweise gelesen werden. In der Konfigurationsdatei von Filebeat gibt man an, wo und nach welchen Dateien gesucht werden soll. In unserem Fall waren es .log und .json Dateien. Außerdem kann man ein multiline pattern angeben, falls ein Eintrag mehrzeilig sein sollte. Die eingelesenen Dateien sendet Filebeat an Logstash weiter. Dabei merkt sich Filebeat welche Dateien schon gelesen wurden und welche Zeilen in diesen Dateien gelesen wurden. Das bedeutet ebenfalls, wenn eine komplett neue Datei oder eine neue Zeile in einer alten Datei auftaucht, merkt Filebeat das und liest es und sendet es wieder der an logstash. Damit ist die Echtzeitanalyse der Daten gewährleistet. 
+Mit Filebeat können Dateien zeilenweise gelesen werden. In der Konfigurationsdatei von Filebeat gibt man an, wo und nach welchen Dateien gesucht werden soll. In unserem Fall waren es .log und .json Dateien. Außerdem kann man ein multiline pattern angeben, falls ein Eintrag mehrzeilig sein sollte. Die eingelesenen Dateien sendet Filebeat an Logstash weiter. Dabei merkt sich Filebeat, welche Dateien schon gelesen wurden und welche Zeilen in diesen Dateien gelesen wurden. Das bedeutet ebenfalls, wenn eine komplett neue Datei oder eine neue Zeile in einer alten Datei auftaucht, merkt Filebeat das, liest es und sendet die Daten wieder an Logstash. Damit ist die Echtzeitanalyse der Daten gewährleistet. 
 
 \subsubsection{Logstash}
 \label{sub:Logstash}
-Die Aufgabe von Logstash ist es die Daten, von Filebeat zu empfangen und zu verarbeiten. Die empfangenen Daten befinden sich in einem rohen Zustand und werden mithilfe von mehreren Filter Plug-ins verarbeitet. Nachdem die Daten verarbeitet wurden sendet Logstash sie weiter an Elasticsearch.\\
+Die Aufgabe von Logstash ist es Daten von Filebeat zu empfangen und zu verarbeiten. Die empfangenen Daten befinden sich in einem rohen Zustand und werden mithilfe von mehreren Filter-Plugins verarbeitet. Nachdem die Daten verarbeitet wurden, sendet Logstash sie weiter an Elasticsearch.\\
 
 \textbf{Grok Filter Plugin}\\
 \\
-Für die Logdateien wurde das Grok Filter Plug-in verwendet. In dem Grok-Filter gibt man einen regulären Ausdruck an, mitdem gematcht werden soll. Dabei kann man auch direkt festlegen, wie die Daten gespeichert werden sollen, falls gematcht wurde. Allgemein ist die Syntax dabei \%\{REGEXP:Feld\}. Neben einigen regulären Ausdrücken, die im Grok-Filter bereits implementiert sind (wie z.B. \textit{LOGLEVEL, TIMESTAMP\_ISO8601, SPACE, URIPATH}, uvm.) kann man auch eigene reguläre Ausdrücke definieren.
-Wie schon in Kapitel \ref{ssub:Segmentierung} beschrieben, sollen die Daten segmentiert werden, was mit dem Grok-Filter realisiert werden kann. Z.B. kann man in dem regulären Ausdruck an der richtigen Stelle \textit{Incoming Request} setzen. Dadurch würden alle outgoing responses nicht matchen und auch nicht gespeichert werden. Außerdem kann man Daten matchen, aber keinem Feld zuweisen, wodurch sie auch nicht gespeichert werden. 
-Die vollständige Konfiguration für die Logdateien sieht folgendermaßen aus:\\
+Für die Logdateien wurde das Grok Filter-Plugin verwendet. In dem Grok-Filter gibt man einen regulären Ausdruck an, mitdem gematcht werden soll. Dabei kann man auch direkt festlegen, wie die Daten gespeichert werden sollen, falls gematcht wurde. Allgemein ist die Syntax dabei \%\{REGEXP:Feld\}. Neben einigen regulären Ausdrücken, die im Grok-Filter bereits implementiert sind (wie z.B. \textit{LOGLEVEL, TIMESTAMP\_ISO8601, SPACE, URIPATH}, uvm.) kann man auch eigene reguläre Ausdrücke definieren.
+Wie schon in Kapitel \ref{ssub:Segmentierung} beschrieben, sollen die Daten segmentiert werden, was mit dem Grok-Filter realisiert werden kann. So kann man z.B. duch richtiges Platzieren von \textit{Incoming Request} in dem regulären Ausdruck erreichen, dass \textit{Outgoing Responses} nicht gematched und dadurch auch nicht weiter beachtet werden. Außerdem ist es möglich Daten matchen, aber keinem Feld zuweisen, wodurch sie auch nicht gespeichert werden. 
+Die vollständige Konfiguration für die Logdateien sieht folgendermaßen aus:\\ (MACHE ICH DAS ÜBERHAUPT NOCH SO?)
 \newpage
 \begin{lstlisting}[caption = Sessionlog Filter,captionpos=b]
 if [log][file][path] =~ "\S+session\S+" {
@@ -80,19 +80,33 @@ if [log][file][path] =~ "\S+session\S+" {
 \\
 Das Ruby Filter Plugin wird benutzt, um transformierte Daten in Elasticsearch zu speichern. An dieser Stelle sei angemerkt, dass Elasticsearch zwar eine experimentelle \textit{transform} Funktion besitzt, diese aber für unseren Anwendungsfall (noch) nicht passend implementiert ist \citep{ElTr20}. Deshalb wurde ein Ruby Skript entwickelt, das diese Funktion ergänzt.\\
 
-Die Daten, die nach dem Gedanken aus \ref{ssub:Feature_extraction} transformiert wurden, werden in einer JSON Datei gespeichert. Wie genau diese Daten aussehen bzw. wie sie zustande kommen wird in Kapitel \ref{ssub:Kibana} genaue erläutert. Zum besseren Verständis, wie das Ruby Skript arbeitet, wird an dieser Stelle daher die Datenstruktur abstrakt beschrieben.
-Im Prinzip sind die Daten in 3 Ebenen aufgeteilt:\\
+Die Daten, die nach dem Gedanken aus Abschnitt \ref{ssub:Feature_extraction} transformiert wurden, werden in einer JSON Datei gespeichert. Wie genau diese Daten aussehen bzw. wie sie zustande kommnen, wird in Kapitel \ref{ssub:Kibana} genauer erläutert. Zum besseren Verständnis, wie das Ruby Skript arbeitet, wird an dieser Stelle daher die Datenstruktur abstrakt beschrieben.
+Im Prinzip sind die Daten in drei Ebenen aufgeteilt:\\
 \begin{enumerate}
 	\item UserIDs
 	\item SessionIDs
 	\item Widgets
 \end{enumerate}
-Dabei kann man die jeweils eine Ebene als ein Array verstehen. So besteht die oberste Ebene aus einem Array, das mit UserIDs gefüllt ist. Zu der UserID wird zusätzlich eine Array gespeichert, das aus SessionIDs besteht, die zu der UserID gehören. Zu diesen SessionIDs wird schließflich ebenfalls ein Array verknüpft, in dem festgehalten wird, welche Widgets in der Sesseion genutzt wurden und wie oft. Nun durchläuft das Skript also die beschriebenen Array Ebenen und speichert die gegebenen Daten in passende Felder, die schließlich an Elasticsearch gesendet und dort in einem passenden Index gespeichert werden.
+Dabei kann man jeweils eine Ebene als ein Array betrachten. So besteht die oberste Ebene aus einem Array, das mit UserIDs gefüllt ist. Zu der UserID wird zusätzlich eine Array gespeichert, das aus SessionIDs besteht, die zu der UserID gehören. Zu diesen SessionIDs wird schließlich ebenfalls ein Array verknüpft, in dem festgehalten wird, welche Widgets in der Session genutzt wurden und wie oft. Nun durchläuft das Skript also die beschriebenen Array Ebenen und speichert die gegebenen Daten in passende Felder, die schließlich an Elasticsearch gesendet und dort in einem passenden Index gespeichert werden.
 
 \subsubsection{Elasticsearch}
 \label{ssub:Elasticsearch}
-Nachdem die von Filebeat gelesenen Daten von Logstash geparst wurden, werden die Daten in Elasticsearch gespeichert. Dabei werden die Logeinträge und die transformierten Daten seperat indiziert. Das bedeutet z.B., dass alle Einträge in den Logfiles vom 01.04.2020 und vom 02.04.2020 in eigenen Indizes gespeichert werden.
+Nachdem die von Filebeat gelesenen Daten von Logstash geparst wurden, werden die Daten in Elasticsearch gespeichert. Dabei werden die Logeinträge und die transformierten Daten separat indiziert. Das bedeutet z.B., dass alle Einträge in den Logfiles vom 01.04.2020 und vom 02.04.2020 in eigenen Indizes gespeichert werden.
 
 \subsubsection{Kibana}
 \label{ssub:Kibana}
-Kibana ist ein Tool, um die Daten, die in Elasticsearch gespeichert sind, zu visualisieren bzw. zu analysieren. Dabei liefert Kibana 
+\textbf{Visualisierungen}\\
+\\
+Kibana ist ein Tool, um die Daten, die in Elasticsearch gespeichert sind, zu visualisieren bzw. zu analysieren. In Kibana werden schon einige Visualisierungmöglichkeiten mitgeliefert, von denen für diese Arbeit zwei benutzt wurden: die \textit{Pie} und \textit{Line} Visualisierungen. Erstere wurde benutzt um festzustellen, zu welchen Anteilen die zufälligen Widgeteinträge generiert wurden.\\
+Die \textit{Line} Visualisierung wurde benutzt, um die erste Fragestellung aus \ref{sub:Problemstellung} zu beantworten. Die Visualisierung zeigt in einem zweidimensionalen Diagramm die Benutzung der Widgets über einen bestimmten Zeitraum, wobei dieser Zeitraum auf der x-Achse abgebildet wird. Die y-Achse gibt die Anzahl an Widget Nutzungen an. Das bedeutet ein Punkt in dem Diagramm zeigt an, wie oft ein Widget an einem bestimmten Tag benutzt wurde. Schließlich verbindet die Visualisierung die Punkte miteinander und so erhält man eine Linie, die der Widgetnutzung in einem bestimmten Zeitraum entspricht. Abbildung	\ref{fig:screen_lines} zeigt wie die Visualisierung beispielsweise aussehen könnte.
+
+\begin{figure}[htb]
+\begin{center}
+	\includegraphics[width=430pt]{bilder/screen_lines.png}
+\end{center}
+\caption{Lines Visualisation mit zwei Widgets}
+\label{fig:screen_lines}
+\end{figure}
+
+\textbf{Custom Plugin}\\\\
+Kibana bietet aber nicht ohne Weiteres die Möglichkeit, einen Workflow zu erkennen, wie es in Kapitel \ref{sub:Problemstellung} gefordert ist. Deshalb würde im Zuge der Arbeit ein Custom Plugin für Kibana entworfen.
