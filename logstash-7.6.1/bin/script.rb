@@ -26,16 +26,31 @@ def filter(event)
             sessionid = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["key"]
             startTime = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["min-time"]["value_as_string"]
             endTime = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["max-time"]["value_as_string"]
+            #das brauche ich für association rules
+            #urlArray = Array.new
+            ###
             while k < numberOfURLs do
                 url = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["url"]["buckets"][k]["key"]
                 widgetCounter = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["url"]["buckets"][k]["doc_count"]
-                eventEntry = {"id" => userid, "sessions" => {"id" => sessionid, "sessionStart" => startTime, "sessionEnd" => endTime, "widget" => {"url" => url, "used" => widgetCounter} }}
+                
+                #das brauche ich für association rules
+                #urlArray.push("url" => url, "used" => widgetCounter)
+                ###
+
+                # das bruache ich für die visualisierung
+                eventEntry = {"id" => userid, "sessions" => {"id" => sessionid, "sessionStart" => startTime, "sessionEnd" => endTime, "widget" => ["url" => url, "used" => widgetCounter] }}
                 currentEvent = event.clone
                 currentEvent.set("[user]",eventEntry)
                 eventArray.push(currentEvent)
+                ###
                 k += 1
             end
-            # ich kann auch hier erst das event pushen und mir in der schleife vorher den vektor bauen
+            # das brauche ich für association rules
+            #eventEntry = {"id" => userid, "sessions" => {"id" => sessionid, "sessionStart" => startTime, "sessionEnd" => endTime, "widget" => urlArray}}
+            #currentEvent = event.clone
+            #currentEvent.set("[user]",eventEntry)
+            #eventArray.push(currentEvent)
+            #####
             j += 1
         end
         i += 1
