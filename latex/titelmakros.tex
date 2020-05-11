@@ -1,5 +1,6 @@
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Obere Titelmakros. Editieren Sie diese Datei nur, wenn
 % Sie sich ABSOLUT sicher sind, was Sie da tun!!!
@@ -46,7 +47,10 @@
 \usepackage{verbatim} 
 \usepackage{xcolor}
 \usepackage[colorlinks,citecolor=blue,linkcolor=black]{hyperref} %anklickbares Inhaltsverzeichnis
-
+\usepackage{amsmath} 
+\usepackage{amsthm} 
+\newtheorem{lemma}{Lemma}
+\usepackage{algpseudocode} 
 \ifthenelse{\boolean{\biber}}{
 	% only needed for biber
 	\usepackage[style=authoryear,natbib=true,backend=biber,mincitenames=1,maxcitenames=2,maxbibnames=99,uniquelist=false,dashed=false]{biblatex}
@@ -104,7 +108,9 @@
 	numbers=left,
 	breaklines=true
 }
-
+\lstdefinestyle{base}{
+	moredelim=**[is][\color{red}]{@}{@},
+}
 %\fi
 
 \newcommand{\redt}[1] {
@@ -129,10 +135,12 @@
 
 %\makeindex
 
+
 \begin{document}
 
 %\setcounter{secnumdepth}{4} %Nummerieren bis in die 4. Ebene
 %\setcounter{tocdepth}{4} %Inhaltsverzeichnis bis zur 4. Ebene
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
 
 \pagestyle{headings}
 

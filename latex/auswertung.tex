@@ -1,3 +1,19 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+In diesem Kaptiel wird beschrieben, wie das entwickelte System eingesetzt bzw. getestet wurde.
+\subsection{Datengenerierung}
+\label{sub:Datengenerierung}
+
+Die zur Analyse genutzten Daten sind keine tatsächlichen Kundendaten, sondern wurden zum Zweck dieser Abschlussarbeit generiert. Das war notwendig, da in der aktuellen Version des IFPs die Widgetnamen nicht festgehalten werden und man in der aktuellen Implementierung nicht alle Widgets anhand der Logdateien erkennen kann. Selbst bei einer schnellen Auslieferung wäre der Zeitraum zu klein, um genügend Kundendaten zu sammeln.\\
+Mithilfe eines Python Skripts wurden Logfiles für einen Zeitraum von 30 Tagen generiert. Die generierten Logfiles entsprechen einer verkürzten Version der normalen Logfiles: es wurden nur \textit{Incoming Requests} und Trennlinien, wie sie auch in den echten Logfiles vorkommen, in die generierten Dateien geschrieben. Zu Beginn der Entwicklung des Systems wurde der Logstash Filter mit Logfiles entworfen, in denen alle Einträge standen, also auch \textit{Outgoing Responses}. Zu diesem Zeitpunkt hat der Filter erfolgreich die Daten nach unseren Wünschen aus Kapitel \ref{ssub:Segmentierung} segmentiert. Deshalb war es für die Generierung der Daten ausreichend nur noch \textit{Incoming Requests} zu betrachten, die eine Widgetnutzung repräsentieren. Insgesamt wurden 15 verschiedene Widgets betrachtet.\\
+Um zu prüfen, ob das entwickelte System nach unseren Wünschen funktioniert, müssen die Logfiles zwei Bedingungen erfüllen:\\
+\begin{enumerate}
+	\item Die Einträge in den Logfiles müssen zufällig ausgewählt werden. Die Idee hinter dieser Bedingung ist, dass die Daten in den Logfiles unbekannt sind.\\
+	\item Eine Kombination an Widgets muss in verschiedenen Abständen wiederholt in den Logfiles vorkommen. Diese Kombination stellt einen bestimmten Workflow dar, der durch die Suche nach Assoziationsregeln erkannt werden soll. Die einzige Information, die wir zu diesem Punkt verwenden möchten ist die Anzahl an Sessions und die Anzahl an Sessions, die diesen Workflow beinhalten. Durch diese Werte lässt sich der minsupport für den Workflow bestimmen und dient als Hilfe zur Erkennung des Workflows.
+\end{enumerate}
+Unter berücksichtigung dieser Bedingungen wurde das Skript entwickelt. Eine Ausführung des Python Skripts entspricht einer Session. In dieser Session werden die Widgets, die \glqq benutzten\grqq{} werden, zufällig ausgewäht. Das wurde erreicht, indem die beispielhaften \textit{Incoming Requests} als Strings in einem Array gespeichert werden. Pythons \textproc{random} Funktion liefert eine zufällige Zahl in den Array Grenzen, die bestimmt, welche Zeile geschrieben wird. Zusätzlich hat man die Möglichkeit bei der Ausführung des Skripts eine Reihe an Zahlen zu übergeben, die den Workflow darstellen. Schließlich kann über einen weiteren Parameter eine Zahl übergeben werden, die angibt, welches Datum geloggt wird. Dieser Wert ist standartmäßig auf 0 gesetzt, was dem aktuellen Datum entspricht. Falls dieser Parameter übergeben wird, wird die Zahl zum aktuellen Datum addiert.\\
+Zusätzlich zu dem Python Skript wurde ein Bash Skript entwickelt, das die gesamte Datengenerierung automatisiert. Das Skript simuliert für einen fest gelegten Zeitraum (in unserem Fall 30 Tage) eine zufällige Anzahl an Sessions pro Tag. Außerdem soll ca. jede dritte Session den festen Workflow beinhalten. Welche Widgets benutzt werden wird durch drei zufällige Zahlen bestimmt. Am Ende gibt das Skript auf der Kommandozeile aus, wie viele Sessions insgesamt geschrieben wurden und wie viele davon den Workflow beinhalten.
+
+\subsubsection{Durchführung}
+\label{ssub:Durchführung}
 
