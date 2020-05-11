@@ -1,13 +1,17 @@
-#####################################
-# TODO:                             #
-# - präfix zu json dateien anpassen #
-#####################################
-
 from elasticsearch import Elasticsearch
 import json
+import argparse
 
 es = Elasticsearch()
 indexName = "session-entities"
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-minsupport")
+parser.add_argument("-minconf")
+args = parser.parse_args()
+
+#if args.minsupport and args.minconf:
+#    print("minsupport: {}, minconf: {}".format(args.minsupport, args.minconf))
 
 
 def get_file_content(file_path):
@@ -25,15 +29,10 @@ def get_item_list(index, request_body):
     return widget_list
 
 
-def get_hits(index, request_body):
-    response = es.search(index=index, body=request_body)
-
-
 def prepare_search_query(item_set):
-    #das muss ich evtl fixen ODER in eine eine fkt auslagern
+    #ich kann nur mit frozensets die query vorbeireiten. ist das in ordnung? brauche ich das noch irgendwo ohne frozensets?
     if not isinstance(item_set, frozenset):
         item_set = frozenset([item_set])
-        #print(True)
 
     query_body = get_file_content("../json/widgetCount.json")
     body = json.loads(query_body)
@@ -44,21 +43,21 @@ def prepare_search_query(item_set):
             item = next(set_iterator)
             body["query"]["bool"]["filter"][0]["nested"]["query"]["bool"]["should"][0]["match_phrase"][
                 "user.sessions.widget.url.keyword"] = item
-            #print(item)
             while True:
                 item = next(set_iterator)
                 body["query"]["bool"]["filter"].append({"nested": {"path": "user.sessions.widget", "query": {"bool":
-                    {"should": [{"match_phrase": {"user.sessions.widget.url.keyword": item}}]}}}})
-                #print(item)
+                        {"should": [{"match_phrase": {"user.sessions.widget.url.keyword": item}}]}}}})
         except StopIteration:
             break
 
     return body
 
-def get_count(index,body):
-    return es.count(index=index,body=body)["count"]
 
-# der join ist falsch
+def get_count(index, body):
+    return es.count(index=index, body=body)["count"]
+
+
+# muss ich mir nochmal genauer anschauen
 def join_sets(itemset,set_len):
     set_iterator = iter(itemset)
     old_set = itemset.copy()
@@ -83,7 +82,10 @@ def join_sets(itemset,set_len):
 
     return new_set
 
+
 #die funktion kann ich auch mit for-in schleifen & frequent items realisiern
+#das muss ich mir auch nochmal genauer anschauen
+#hier muss ich einfach pprüfen, ob jedes item in superset auch wirklich superset von subset ist
 def prune_itemset(superset,subset):
     # ich brauche eine bool variable z.B.:
     # remove_item = True
@@ -114,6 +116,9 @@ def prune_itemset(superset,subset):
     #print(j)
 
 
+#hier muss ich nochmal genauer durch schauen was alles weg kann z.B. remove_items
+# ich kann remove items weg lassen, indem ich an prune_items die candidaten übergebe und die frequent_items
+# in prune itemset muss ich dann schauen, dass alle elemte von candidates eine obermenge von frequent_items ist
 def frequent_itemset(candidates, dbsize, min_support):
     frequent_items = set()
     remove_items = set()
@@ -122,9 +127,9 @@ def frequent_itemset(candidates, dbsize, min_support):
     while len(candidates) > 0:
         for item in candidates.copy():
             query = prepare_search_query(item)
-            hits = get_count(indexName,query)
+            hits = get_count(indexName, query)
             supp = hits / dbsize
-            if supp < min_support:
+            if supp < float(min_support):
                 remove_items.add(item)
                 candidates.remove(item)
 
@@ -134,72 +139,49 @@ def frequent_itemset(candidates, dbsize, min_support):
         if len(candidates) > 0:
             frequent_items = candidates.copy()
 
-        candidates = join_sets(candidates,cnt)
-        prune_itemset(candidates,remove_items)
-        cnt = cnt +1
+        candidates = join_sets(candidates, cnt)
+        prune_itemset(candidates, remove_items)
+        cnt = cnt + 1
 
     return frequent_items
 
 
-def new_generate_rules(freq_items, ant_items, dbsize):
+# kann ich das noch besser machen?
+def new_generate_rules(freq_items, ant_items, dbsize, result_set):
     sub_set = set()
-    #result = []
+    result = []
+    #result_str = ''
 
     for item in ant_items:
         sub_set.add(ant_items.difference(frozenset([item])))
 
     for item in sub_set:
         query_oben = prepare_search_query(freq_items)
-        hits_oben = get_count(indexName,query_oben)
+        hits_oben = get_count(indexName, query_oben)
         supp_oben = hits_oben / dbsize
 
         query_unten = prepare_search_query(item)
-        hits_unten = get_count(indexName,query_unten)
+        hits_unten = get_count(indexName, query_unten)
         supp_unten = hits_unten / dbsize
 
         confidence = supp_oben / supp_unten
 
-        if confidence >= 0.75:
+        if confidence >= float(args.minconf):
             consequence = freq_items.difference(item)
             #result_str = list(item) + ' -> ' + list(consequence) + ' support: {}, confidence: {}'.format(supp_oben,confidence)
-            result_str = '{} -> {}, support: {}, confidence: {}'.format(list(item),list(consequence),supp_oben,confidence)
-            return result_str
-        elif len(item) > 1:
-            new_generate_rules(freq_items,item,dbsize)
+            result_str = '{} -> {}, support: {}, confidence: {}'.format(list(item), list(consequence), supp_oben, confidence)
+            #return result_str
+            #result.append(result_str)
+            result_set.add(result_str)
+            if len(item) > 1:
+                new_generate_rules(freq_items, item, dbsize, result_set)
+
+    #return result
 
 
 
-def generate_rules(freq_item_set,dbsize):
-    result = []
 
-    for set in freq_item_set:
-        for item in set:
-            query = prepare_search_query(item)
-            antecedent_hits = get_count(indexName, query)
-            antecedent_supp = antecedent_hits / dbsize
-            #diff_set = set.difference(item)
-            query = prepare_search_query(set)
-            consequence_hits = get_count(indexName, query)
-            consequence_supp = consequence_hits / dbsize
-            conf = consequence_supp / antecedent_supp
 
-            result_str = build_result_string(item,set)
-            result_str = result_str + ' confidence: {}'.format(conf)
-            result.append(result_str)
-
-    return result
-
-def build_result_string(antecedence,consequence):
-    str = ''
-    for item in antecedence:
-        str = str + item + ', '
-
-    str = str + ' -> '
-    #consequence = consequence.difference(frozenset([antecedence]))
-    for item in consequence:
-        str = str + item + ', '
-
-    return str
 ########### hier gehts los
 
 widget_list_json_content = get_file_content("../json/widgetList.json")
@@ -220,7 +202,7 @@ for widget in widgets:
 # hier muss ich das noch ändern
 sessionID_count_json_content = get_file_content("../json/sessionIDCount.json")
 sessionID_count = es.search(index=indexName, body=sessionID_count_json_content)["hits"]["total"]["value"]
-print("total number of sessions: {}".format(sessionID_count))
+#print("total number of sessions: {}".format(sessionID_count))
 #####
 
 
@@ -230,7 +212,7 @@ print("total number of sessions: {}".format(sessionID_count))
 #query = prepare_search_query(testSet)
 #print(get_count(indexName,query))
 
-freqItems = frequent_itemset(candidates, sessionID_count, 0.3)
+freqItems = frequent_itemset(candidates, sessionID_count, float(args.minsupport))
 
 #print(candidates)
 #print(freqItems)
@@ -245,9 +227,11 @@ freqItems = frequent_itemset(candidates, sessionID_count, 0.3)
 #for rule in rules:
 #    print(rule)
 
+rule_set = set()
 rules = []
 for freqItem in freqItems:
-    rules.append(new_generate_rules(freqItem,freqItem,sessionID_count))
+    rules.append(new_generate_rules(freqItem, freqItem, sessionID_count, rule_set))
 
-for rule in rules:
+
+for rule in sorted(rule_set):
     print(rule)

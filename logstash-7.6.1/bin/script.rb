@@ -27,18 +27,18 @@ def filter(event)
             startTime = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["min-time"]["value_as_string"]
             endTime = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["max-time"]["value_as_string"]
             #das brauche ich für association rules
-            #urlArray = Array.new
+            urlArray = Array.new
             ###
             while k < numberOfURLs do
                 url = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["url"]["buckets"][k]["key"]
                 widgetCounter = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["url"]["buckets"][k]["doc_count"]
                 
                 #das brauche ich für association rules
-                #urlArray.push("url" => url, "used" => widgetCounter)
+                urlArray.push("url" => url, "used" => widgetCounter)
                 ###
 
                 # das bruache ich für die visualisierung
-                eventEntry = {"id" => userid, "sessions" => {"id" => sessionid, "sessionStart" => startTime, "sessionEnd" => endTime, "widget" => ["url" => url, "used" => widgetCounter] }}
+                eventEntry = {"id" => userid, "sessions" => {"id" => sessionid, "sessionStart" => startTime, "sessionEnd" => endTime, "widget" => ["url" => url, "used" => widgetCounter]},"tags" => "vis"}
                 currentEvent = event.clone
                 currentEvent.set("[user]",eventEntry)
                 eventArray.push(currentEvent)
@@ -46,10 +46,10 @@ def filter(event)
                 k += 1
             end
             # das brauche ich für association rules
-            #eventEntry = {"id" => userid, "sessions" => {"id" => sessionid, "sessionStart" => startTime, "sessionEnd" => endTime, "widget" => urlArray}}
-            #currentEvent = event.clone
-            #currentEvent.set("[user]",eventEntry)
-            #eventArray.push(currentEvent)
+            eventEntry = {"id" => userid, "sessions" => {"id" => sessionid, "sessionStart" => startTime, "sessionEnd" => endTime, "widget" => urlArray}, "tags" => "nested"}
+            currentEvent = event.clone
+            currentEvent.set("[user]",eventEntry)
+            eventArray.push(currentEvent)
             #####
             j += 1
         end

@@ -20,11 +20,10 @@ latex/ba.pdf
 python/__pycache__
 python/venv
 test/
+widgets.txt
 
-!/filebeat/filebeat.yml
 
 /elasticsearch-7.6.1/*
 /kibana-7.6.1/*
-/filebeat-7.6.1/*
 /multiversa-/*
 

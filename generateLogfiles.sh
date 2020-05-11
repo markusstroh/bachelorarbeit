@@ -2,16 +2,41 @@
 
 # hier muss noch rein, dass man start und ende über das terminal übergibt
 sessionCnt=0
+routineCnt=0
 i=0 # Anzahl tage
+
+widget1=$(( (RANDOM % 14) + 1 ))
+widget2=$(( (RANDOM % 14) + 1 ))
+widget3=$(( (RANDOM % 14) + 1 ))
+
+while [ $widget1 -eq $widget2 ]
+do
+    widget2=$(( (RANDOM % 14) + 1 ))
+done
+
+
+while (( widget1 == widget3 || widget2 == widget3 ))
+do
+    widget3=$(( (RANDOM % 14) + 1 ))
+done
+
 while [ $i -le  31 ]
 do
 	j=1  # Anzahl der Sessions an einem Tag
-	while [ $j -le 11 ]
+	k=0
+
+	while [ $k -lt 3 ]
+	do
+	  k=$(( (RANDOM % 20) + 1 ))
+	done
+
+	while [ $j -le $k ]
 	do
 		if [ $(($j % 3)) -eq 0 ]
 		then
-			python3.7 python/logEntryGenerator.py -d $i -f
-			sessionCnt=$(($sessionCnt +1))
+			python3.7 python/logEntryGenerator.py -d $i -f=$widget1,$widget2,$widget3
+			sessionCnt=$(($sessionCnt + 1))
+			routineCnt=$(($routineCnt + 1))
 		else
 			python3.7 python/logEntryGenerator.py -d $i
 			sessionCnt=$(($sessionCnt +1))
@@ -21,7 +46,9 @@ do
 	i=$(($i +1))
 done
 
-echo "$sessionCnt sessions generated"
+echo "$sessionCnt sessions and $routineCnt generated"
+
+echo "$widget1 $widget2 $widget3" > widgets.txt
 
 
 #i=1

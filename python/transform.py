@@ -12,25 +12,30 @@ from os import path
 
 
 
-if __name__ == "__main__":
+def main():
     print("start transforming data")
     es = Elasticsearch()
 
-    
-    workdir = "/Users/markusstroh/Desktop/Uni/Informatik/bachelorarbeit/"
+
+
+    #workdir = "/Users/markusstroh/Desktop/Uni/Informatik/bachelorarbeit/"
+
+
     indexFilter = 'generated-logs-*'
-    
+
+   #hier erstelle ich erstmal den index für die association rules
     try:
         es.cat.indices(index="session-entities")
         print("Index available")
         #print(es.cat.indices(index="sessionEntity"))
     except:
         print("No index for Session Entites exist. Create Index")
-        mapping = open(workdir + "json/mappingForSessionEntity.json","r")
+        mapping = open("../json/mappingForSessionEntity.json", "r")
         content = mapping.read()
         es.indices.create(index="session-entities",body=content)
 
-    
+
+    #hier bekomme ich eine list mit den logfiles
     catString = es.cat.indices(index=indexFilter).split()
     regex = re.compile(indexFilter)
 
@@ -41,19 +46,25 @@ if __name__ == "__main__":
 
 #aprint(indicies[0])
     #workdir = path.realpath('.')
-    transformFile = open(workdir + 'json/transform_vorschlag2.json','r')
+    transformFile = open('../json/transform_vorschlag2.json','r')
 
     content = ""
     if transformFile.mode == 'r':
         content = transformFile.read()
 
-#print(content)
+    workdir = ""
+    if len(indicies) > 0:
+        filePathJsonContent = open("../json/filePath.json", "r").read()
+        workdir = es.search(index=indicies[0],body=filePathJsonContent)["aggregations"]["workdir"]["buckets"][0]["key"]
+        workdir = workdir[0:workdir.rindex("/")+1]
+
+    #print(content)
     for index in indicies:
         if not path.exists(index+"transformed.json"):
             res = es.search(index=index,body=content)
             print("transforming " + index)
 
-            transformedLog = open(workdir + "multiversa-/" + index + "transformed.json","w")
+            transformedLog = open(workdir + index + "transformed.json","w")
             transformedLog.write(json.dumps(res,indent=2))
             transformedLog.write("\n")
             transformedLog.close()
@@ -65,3 +76,8 @@ if __name__ == "__main__":
     print("done transforming data")
 
     #return "JAWOLL ALDER"
+
+
+if __name__ == "__main__":
+    main()
+
