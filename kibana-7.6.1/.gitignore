@@ -1,0 +1,16 @@
+NOTICE.txt
+README.txt
+bin/*
+built_assets/
+config/
+data/
+node/
+node_modules/
+optimize/
+package.json
+src/
+webpackShims/
+x-pack/
+LICENSE.txt
+
+/plugins/customer_analytics
