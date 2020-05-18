@@ -1,0 +1,74 @@
+{
+  "took": 1,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 7,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": []
+  },
+  "aggregations": {
+    "userid": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 0,
+      "buckets": [
+        {
+          "key": "17:demostroh",
+          "doc_count": 7,
+          "sessionid": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+              {
+                "key": "hm9dDTZxSU3hq1uT",
+                "doc_count": 7,
+                "max-time": {
+                  "value": 1591291525969.0,
+                  "value_as_string": "2020-06-04T17:25:25.969Z"
+                },
+                "min-time": {
+                  "value": 1591291525969.0,
+                  "value_as_string": "2020-06-04T17:25:25.969Z"
+                },
+                "url": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 0,
+                  "buckets": [
+                    {
+                      "key": "openPayments",
+                      "doc_count": 2
+                    },
+                    {
+                      "key": "transactionByDate",
+                      "doc_count": 2
+                    },
+                    {
+                      "key": "IncomingTransactionsWidgetContent",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "LiquidityByBanksWidgetContent",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "LiquidityByCountriesWidgetContent",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

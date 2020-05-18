@@ -1,0 +1,236 @@
+{
+  "took": 9,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 48,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": []
+  },
+  "aggregations": {
+    "userid": {
+      "doc_count_error_upper_bound": 0,
+      "sum_other_doc_count": 0,
+      "buckets": [
+        {
+          "key": "17:demostroh",
+          "doc_count": 48,
+          "sessionid": {
+            "doc_count_error_upper_bound": 0,
+            "sum_other_doc_count": 0,
+            "buckets": [
+              {
+                "key": "iSGR7FveJ1esGr1s",
+                "doc_count": 17,
+                "max-time": {
+                  "value": 1596475568781.0,
+                  "value_as_string": "2020-08-03T17:26:08.781Z"
+                },
+                "min-time": {
+                  "value": 1596475568781.0,
+                  "value_as_string": "2020-08-03T17:26:08.781Z"
+                },
+                "url": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 0,
+                  "buckets": [
+                    {
+                      "key": "IncomingTransactionsWidgetContent",
+                      "doc_count": 4
+                    },
+                    {
+                      "key": "LiquidityByAccountsWidgetContent",
+                      "doc_count": 2
+                    },
+                    {
+                      "key": "LiquidityByBanksWidgetContent",
+                      "doc_count": 2
+                    },
+                    {
+                      "key": "LiquidityByCurrenciesWidgetContent",
+                      "doc_count": 2
+                    },
+                    {
+                      "key": "openPayments",
+                      "doc_count": 2
+                    },
+                    {
+                      "key": "BalancesListWidgetContent",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "LiquidityByCountriesWidgetContent",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "balancesColumn",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "paymentEntry",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "summary",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "ueWPVuy5mIlnjN0s",
+                "doc_count": 13,
+                "max-time": {
+                  "value": 1596475568730.0,
+                  "value_as_string": "2020-08-03T17:26:08.730Z"
+                },
+                "min-time": {
+                  "value": 1596475568730.0,
+                  "value_as_string": "2020-08-03T17:26:08.730Z"
+                },
+                "url": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 0,
+                  "buckets": [
+                    {
+                      "key": "LiquidityByBanksWidgetContent",
+                      "doc_count": 4
+                    },
+                    {
+                      "key": "favouriteViews",
+                      "doc_count": 2
+                    },
+                    {
+                      "key": "paymentEntry",
+                      "doc_count": 2
+                    },
+                    {
+                      "key": "IncomingTransactionsWidgetContent",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "LiquidityByAccountGroupsWidgetContent",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "LiquidityByCountriesWidgetContent",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "summary",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "transactionByDate",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "5zetkSzY1BQyNkp4",
+                "doc_count": 11,
+                "max-time": {
+                  "value": 1596475568888.0,
+                  "value_as_string": "2020-08-03T17:26:08.888Z"
+                },
+                "min-time": {
+                  "value": 1596475568888.0,
+                  "value_as_string": "2020-08-03T17:26:08.888Z"
+                },
+                "url": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 0,
+                  "buckets": [
+                    {
+                      "key": "transactionByDate",
+                      "doc_count": 3
+                    },
+                    {
+                      "key": "LiquidityByBanksWidgetContent",
+                      "doc_count": 2
+                    },
+                    {
+                      "key": "LiquidityByCountriesWidgetContent",
+                      "doc_count": 2
+                    },
+                    {
+                      "key": "BalancesListWidgetContent",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "TransmittedPaymentsWidgetContent",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "openPayments",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "summary",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              },
+              {
+                "key": "8ECKRKskyeuXMfEa",
+                "doc_count": 7,
+                "max-time": {
+                  "value": 1596475568672.0,
+                  "value_as_string": "2020-08-03T17:26:08.672Z"
+                },
+                "min-time": {
+                  "value": 1596475568672.0,
+                  "value_as_string": "2020-08-03T17:26:08.672Z"
+                },
+                "url": {
+                  "doc_count_error_upper_bound": 0,
+                  "sum_other_doc_count": 0,
+                  "buckets": [
+                    {
+                      "key": "BalancesListWidgetContent",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "LiquidityByAccountGroupsWidgetContent",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "LiquidityByCurrenciesWidgetContent",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "favouriteViews",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "paymentEntry",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "summary",
+                      "doc_count": 1
+                    },
+                    {
+                      "key": "transactionByDate",
+                      "doc_count": 1
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

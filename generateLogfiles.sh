@@ -1,14 +1,16 @@
 #!/bin/bash
 
-# hier muss noch rein, dass man start und ende über das terminal übergibt
+# This script generates logfiles that are going to be analysed.
+
 sessionCnt=0
 routineCnt=0
-i=0 # Anzahl tage
+daysCnt=0
 
 widget1=$(( (RANDOM % 14) + 1 ))
 widget2=$(( (RANDOM % 14) + 1 ))
 widget3=$(( (RANDOM % 14) + 1 ))
 
+# Make sure that the three Widgets are different
 while [ $widget1 -eq $widget2 ]
 do
     widget2=$(( (RANDOM % 14) + 1 ))
@@ -19,45 +21,32 @@ while (( widget1 == widget3 || widget2 == widget3 ))
 do
     widget3=$(( (RANDOM % 14) + 1 ))
 done
+###
 
-while [ $i -le  31 ]
+# Generate logfiles for 90 Days
+while [ $daysCnt -le  90 ]
 do
-	j=1  # Anzahl der Sessions an einem Tag
-	k=0
+	sessionsPerDayCnt=1
+	maxSessions=0
+	maxSessions=$(( (RANDOM % 20) + 1 ))
 
-	while [ $k -lt 3 ]
-	do
-	  k=$(( (RANDOM % 20) + 1 ))
-	done
 
-	while [ $j -le $k ]
+	while [ $sessionsPerDayCnt -le $maxSessions ]
 	do
-		if [ $(($j % 3)) -eq 0 ]
+		if [ $(($sessionsPerDayCnt % 3)) -eq 0 ] # every third session should contain the specified widgets
 		then
-			python3.7 python/logEntryGenerator.py -d $i -f=$widget1,$widget2,$widget3
+			python3.7 python/logEntryGenerator.py -d $daysCnt -f=$widget1,$widget2,$widget3
 			sessionCnt=$(($sessionCnt + 1))
 			routineCnt=$(($routineCnt + 1))
 		else
-			python3.7 python/logEntryGenerator.py -d $i
+			python3.7 python/logEntryGenerator.py -d $daysCnt
 			sessionCnt=$(($sessionCnt +1))
 		fi
-		j=$(($j +1))
+		sessionsPerDayCnt=$(($sessionsPerDayCnt +1))
 	done
-	i=$(($i +1))
+	daysCnt=$(($daysCnt +1))
 done
 
 echo "$sessionCnt sessions and $routineCnt generated"
 
 echo "$widget1 $widget2 $widget3" > widgets.txt
-
-
-#i=1
-#while [ $i -le 5 ]
-#do
-#	if [ $(($i % 2)) -eq 0 ]
-#	then
-#		echo "jawoll alder $i"
-#	fi
-#	echo "Welcome $i times"
-#	i=$(($i +1))
-#done

@@ -1,5 +1,4 @@
-#TODO:
-# ich muss die zeitangaben noch ändern, sodass nur noch tage da stehen. tage wird nämlich die kleinste zeiteinheit sein
+# Get date from logstash
 def register(params)
     @sessionObject = params["parsedJson"]
 end
@@ -10,12 +9,12 @@ def filter(event)
     data = event.get(@sessionObject)
 
     numberOfUserIDs = data["aggregations"]["userid"]["buckets"].size
-    #numberOfSessionIDs = data["aggregations"]["userid"]["buckets"][0]["sessionid"]["buckets"].size
-    
-    #data["aggregations"]["userid"]["buckets"]
 
     i = 0
     eventArray = Array.new
+    # Iterate through the JSON data that is passed by logstash. Read the information that is needed for the session
+    # entities and store them in given fields. These field are later stored in the eventArray which will be returned
+    # to logstash. The execution of this script creates one session entity at a time.
     while i < numberOfUserIDs do 
         numberOfSessionIDs = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"].size
         j = 0
@@ -26,83 +25,36 @@ def filter(event)
             sessionid = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["key"]
             startTime = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["min-time"]["value_as_string"]
             endTime = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["max-time"]["value_as_string"]
-            #das brauche ich für association rules
+
+            # This array stores the widget name and number of usages per session
             urlArray = Array.new
-            ###
+
             while k < numberOfURLs do
                 url = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["url"]["buckets"][k]["key"]
                 widgetCounter = data["aggregations"]["userid"]["buckets"][i]["sessionid"]["buckets"][j]["url"]["buckets"][k]["doc_count"]
                 
-                #das brauche ich für association rules
                 urlArray.push("url" => url, "used" => widgetCounter)
-                ###
 
-                # das bruache ich für die visualisierung
+                #### This part is necessary to store the session entity in a slightly different way for the
+                # visualizations in kibana.
                 eventEntry = {"id" => userid, "sessions" => {"id" => sessionid, "sessionStart" => startTime, "sessionEnd" => endTime, "widget" => ["url" => url, "used" => widgetCounter]},"tags" => "vis"}
                 currentEvent = event.clone
                 currentEvent.set("[user]",eventEntry)
                 eventArray.push(currentEvent)
-                ###
+                ####
+
                 k += 1
             end
-            # das brauche ich für association rules
+
+            # Send transformed data back to logstash
             eventEntry = {"id" => userid, "sessions" => {"id" => sessionid, "sessionStart" => startTime, "sessionEnd" => endTime, "widget" => urlArray}, "tags" => "nested"}
             currentEvent = event.clone
             currentEvent.set("[user]",eventEntry)
             eventArray.push(currentEvent)
-            #####
             j += 1
         end
         i += 1
    end
 
-
-
-    #f = printFactors(data)
-#    puts f
-
-#    event.remove("message")
-
-#    a = {"id" => "schusterl", "sessions" => ["id" => "test","id" => "test2"]}
-#    event.set("[user]", a)
-
-#    x = Array.new
-#    x.push(event)
-
-#    y = event.clone
-#    c = "stroh"
-#    b = {"id" => c, "sessions" => {"id" => "tesdasdast","starttime" => "0","endtime" => "1","urls" => {} }}
-#    y.set("[user]",b)
-#    x.push(y)
-#    test(y)
-    
-    #event.set("user", {"id" => "adler"})
-    #puts event.to_hash.keys
-    #puts event.get("message")
-
-
-
-    #return x
     return eventArray
-end
-
-# hier mache ich eine funktion, die mit ein array oder eine map zurück gibt, die die url zu den sessions mappt
-def test(event)
-    puts "JAWOLL ALDER"
-    puts event.get("user")
-end
-
-def printFactors(data)
-    numberOfUserIDs = data["aggregations"]["userid"]["buckets"].size 
-    numberOfSessionIDs = data["aggregations"]["userid"]["buckets"][0]["sessionid"]["buckets"].size
-    numberOfURLs = data["aggregations"]["userid"]["buckets"][0]["sessionid"]["buckets"][0]["url"]["buckets"].size
-
-    #puts "total number of userids #{numberOfUserIDs}"
-    #puts "total number of sessionids for user #{numberOfSessionIDs}"
-    #puts numberOfURLs
-    startTime data["aggregations"]["userid"]["buckets"][0]["sessionid"]["buckets"][0]["max-time"]["value_as_string"]
-    endTime = data["aggregations"]["userid"]["buckets"][0]["sessionid"]["buckets"][0]["min-time"]["value_as_string"]
-
-
-    return 53
 end

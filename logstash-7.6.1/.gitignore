@@ -14,5 +14,5 @@ tools/
 vendor/
 x-pack/
 
-!/bin/bachyo.conf
+!/bin/pipeline.conf
 !/bin/script.rb
