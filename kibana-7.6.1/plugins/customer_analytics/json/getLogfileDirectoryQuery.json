@@ -1,0 +1,10 @@
+{
+	"size": 0,
+	"aggs": {
+		"workdir": {
+			"terms": {
+				"field": "log.file.path.keyword"
+			}
+		}
+	}
+}

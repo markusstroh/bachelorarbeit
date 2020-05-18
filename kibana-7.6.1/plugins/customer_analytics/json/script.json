@@ -1,0 +1,15 @@
+{
+  "query" : {
+    "match_all" : {}
+  },
+  "aggs": {
+    "sessionid": {
+      "scripted_metric": {
+        "init_script": "state.test = []",
+        "map_script": "state.test.add(doc['userid.keyword'])",
+		"combine_script": "ArrayList combined = []; for(word in state.test){ combined.add(word)}",
+		"reduce_script" : "ArrayList reduced = []; for(a in states){ for(entry in a){reduced.add(entry.value);}}"
+      }
+    }
+  }
+}

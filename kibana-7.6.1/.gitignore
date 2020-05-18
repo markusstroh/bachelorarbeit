@@ -13,4 +13,4 @@ webpackShims/
 x-pack/
 LICENSE.txt
 
-/plugins/customer_analytics
+!/plugins/customer_analytics

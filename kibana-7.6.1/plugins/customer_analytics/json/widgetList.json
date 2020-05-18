@@ -1,0 +1,18 @@
+{
+	"size": 0,
+	"aggs": {
+		"widgetList": {
+			"nested": {
+				"path": "user.sessions.widget"
+			},
+			"aggs": {
+				"widgetID": {
+					"terms": {
+						"field": "user.sessions.widget.url.keyword",
+						"size": 20
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"size":0,
+	"aggs":{
+		"url":{
+			"terms": {
+				"field": "widget.widget.keyword",
+				"size": 20
+			}
+		}
+	}
+}
