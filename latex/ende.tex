@@ -1,10 +1,27 @@
 \section{Zusammenfassung}
 \label{sec:Zusammenfassung}
-
+In dem letzten Kapitel der Arbeit wird ein Fazit mit Blick auf die Ergebnisse aus dem vorherigen Kapitel gezogen. Schließlich werden zukünftige Anwendungsmöglichkeiten aufgezeigt, die sich auf drei Bereiche beziehen: Umwandlung, Optimierung und Erweiterung. In dem Abschnitt zur Umwandlung werden Denkansätze vorgestellt, wie man das System umwandeln kann, um es in neuen Bereichen einzusetzen. Anschließend geht es in dem Abschnitt zur Optimierung darum Stellen aufzuzeigen, welche ein Verbesserungspotential des entwickelten Systems bergen. Zum Schluss wird eine Aussicht auf Funktionalitäten gegeben, um die das System erweitert werden kann.
 \subsection{Fazit}
 \label{sub:Fazit}
-
+Die Ergebnisse aus Kapitel \ref{sec:Auswertung} haben gezeigt, dass sich die im Rahmen dieser Arbeit vorgestellten Methoden durchaus eignen, Logfiles bzgl. des Userverhaltens zu analysieren. Trotzdem ist es wichtig an dieser Stelle anzumerken, dass die aktuelle Version des IFPs noch nicht die notwendigen Informationen in den Logfiles enthält und somit das System nicht direkt zur Analyse eingesetzt werden kann. Erst wenn in den Logfiles des IFPs bzw. in den URLs der Incoming Requests der Widgetname eindeutig festgehalten wird, ist dieses System einsetzbar. Es ist zwar durchaus möglich, einige Widgets anhand der Parameter in den URLs zu erkennen, aber damit würde man nur eine Teilmenge der Widgets abdecken, die zum Einsatz kommen.\\
+Ebenso sei an dieser Stelle erwähnt, dass die Mittel und Wege zur Datenanalyse in dieser Arbeit nur eine mögliche Variante sind, an das erwünschte Ziel zu kommen. Während der Umsetzung der technischen Aspekte der Arbeit, wurden mehrere Ansätze ausprobiert die gegebenen Probleme zu lösen. Als Beispiel lässt sich das Ruby Filter-Plugin aus Kapitel \ref{sub:Logstash} nennen. Anstelle des hier angewendeten Plugins kan man auch das JSON Filter-Plugin benutzen, um die transformierten Daten zu parsen. Da aber mit dem Ruby Filter-Plugin das gewünschte Ergebnis durch Ausprobieren schneller erreicht wurde, wurde dieses letzlich auch verwendet.
 
 \subsection{Zukünftige Anwendungsmöglichkeiten}
 \label{sub:Zukünftige Anwendungsmöglichkeiten}
+Um diese Arbeit abzuschließen werden zukünftige Anwendungsmöglichkeiten vorgestellt. Zunächst werden Möglichkeiten vorgeschlagen, wie man die im Rahmen der Arbeit entwickelten Analysemöglichkeiten auf weitere Aspekte des IFPs umwandeln kann. Daran anknüpfend werden mögliche Optimierungen des System angeboten. Schließlich wird erläutert, wie man das System mit neuen Funktionalitäten erweitern könnte.
+\subsubsection{Umwandlungen}
+\label{ssub:Umwandlungen}
 
+Wie bereits in Kapitel \ref{ssub:Diskussion} erwähnt, bietet sich durch die eingeführte Datenstruktur der Session Entities die Möglichkeit, vektorbasierte Analysen durchzuführen. Neben der Nächste-Nachbarn-Methode wäre es z.B. auch denkbar Widgets basierend auf der Häufigkeit der Nutzung zu klassifizieren. Eine solche Klassifikation kann man wiederum nutzen, um zu bestimmen, welche Widgets nicht so oft benutzt werden und damit auch nicht so beliebt sind. Basierend auf dieser Information besteht die Möglichkeit das Widget zu überarbeiten.\\
+
+Bis jetzt wurde vorgestellt, wie man die Logfiles des IFPs nutzen kann, um das Kundenverhalten bzgl. der Widgetnutzung zu analysieren. Da das IFP aber einen größeren Funktionsumfang hat, ist es naheliegend die Analyse auf weitere Bereiche zu erweitern. Eine Möglichkeit wäre einen Workflow nicht nur auf Widgets zu beschränken, sondern alle Seiten, die in einer Session aufgerufen wurden, zu betrachten.
+
+In Kapitel \ref{ssub:Diskussion} wurde bereits erörtert, dass die Assoziationsregelngenerierung keine zeitlichen Abfolgen berücksichtigt. Dies könnte man durch eine Modifikation des Algorithmus ändern. \citep{Be03}\\
+Desweiteren wäre es auch denkbar, die Widgets in hierarchische Strukturen einzuteilen und diese bei der Analyse zu berücksichtigen. Man könnte den Algorithmus auch dahingehend modifizieren, dass die Quantität der Widgets berücksichtigt wird \citep{EsSa00}\\
+\subsubsection{Optimierung}
+\label{ssub:Optimierung}
+An dieser Stelle sei drauf hingewiesen, dass es zumindest einen Aspekt der Arbeit gibt, der in Zukunft optimiert werden sollte. In Kapitel \ref{ssub:Kibana} wurde erläutert, dass für die transformierten Daten zwei Indizes nötig seien, um die Visualisierungen darzustellen und die Datenstruktur der Session Entities akkurat in Elasticsearch zu speichern. Aus den Ergebnissen in Kapitel \ref{ssub:Diskussion} ist aber deutlich geworden, dass der extra Index für die Visualisierung der transformierten Daten redundant ist. Aus diesem Grund sollte in Zukunft darauf verzichtet werden, diesen Index anzulegen. Eine weitere Möglichkeit besteht darin, die transformierten Daten weder als JSON Dateien, noch in einem Index zu speichern. Stattdessen können die transformierten Daten temporär gecached werden. Es ist an dieser Stelle allerdings schwierig abzuschätzen, ob und wie vorteilhaft das wäre.
+\subsubsection{Erweiterungen}
+\label{ssub:Erweiterungen}
+Abschließend wollen wir anregen, wie man das System um Funktionen erweitern kann, die von Elasticsearch angeboten werden. Da diese Möglichkeiten die kostenpflichtige Version von Elasticsearch voraussetzen, wurde im Rahmen dieser Arbeit zunächst darauf verzichtet, diese zu benutzen. So ist es sicherlich lohnenswert, sich Elasticsearchs Machine Learning Modul anzuschauen. Dort könnten ähnliche Analysemöglichkeiten enthalten sein, wie die im Kapitel \ref{ssub:Umwandlungen} vorgestellten \citep{ElMl20}.\\
+Außerdem könnte die Alert Schnittstelle in Elasticsearch von Interesse sein. Mit dieser Erweiterung hat man die Möglichkeit Benachrichtigungen zu versenden, falls ein vom User definiertes Ereignis eintritt \citep{ElAl20}.

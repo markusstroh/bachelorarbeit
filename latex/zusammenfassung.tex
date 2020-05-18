@@ -1,4 +1,10 @@
 %%% Die folgende Zeile nicht ändern!
 \section*{\ifthenelse{\equal{\sprache}{deutsch}}{Zusammenfassung}{Abstract}}
 %%% Zusammenfassung:
-Hier kommt eine ca.\ einseitige Zusammenfassung der Arbeit rein.
+Die vorliegende Arbeit, die am Lehrstuhl für Datenbanken und Informationssysteme der Heinrich-Heine-Universtät Düsseldorf verfasst wurde, beschäftigt sich mit der Mustererkennung in Logfiles. Dabei soll das Kundenverhalten des Produkts \textit{Multiversa International Finance Portal} der Firma Computer-Communications Networks GmbH erkannt werden. Dafür wurden zunächst die Firma und das Produkt vorgestellt.
+Die Analyse des Kundenverhaltens soll auf zwei Arten erfolgen. Zum einen war eine visuelle Darstellung erwünscht, zum anderen wurde ein Verfahren zur Suche nach Assoziationsregeln gesucht. Mit letzterer Methode sollen Workflows des Kunden erkannt werden.\\
+
+Das System, das im Rahmen dieser Arbeit entwickelt wurde, basiert auf den Produkten Elasticsearch, Kibana, Logstash und Filebeat der Firma Elasticsearch N.V. Im Verlauf der Arbeit wird dargestellt, wie diese Produkte eingesetzt wurden und ggf. um eigene Funktionen erweitert wurde. Insbesondere im Bezug auf die Suche nach Assoziationsregeln mussten diese Produkte um Funktionen erweitert werden, die die Software nativ nicht anbietet. Da die Nutzerfreundlichkeit bei der Arbeit nicht zu vernachlässigen war, wurde ein Custom Plugin für Kibana entwickelt, das Python Skripte ausführen kann, mit denen die Assoziationsregeln gefunden wurden. Dadurch sind keine Vorkenntnisse nötig, um als User das Analyse Tool zu benutzen.\\
+
+Nachdem die theoretischen und technischen Grundlagen geschaffen wurden, wurde das System getestet. Dabei wurden die Vorgehensweise und die Auswertung dokumentiert.\\
+Das Ergebnis der Arbeit ist neben dem entwickelten System eine kritische Auseinandersetzung mit den Ergebnissen der Tests und der angewandten Methoden. Den Abschluss bildet eine Aussicht darauf, wie das System für zukünftige Anwendungsfälle optimiert bzw. erweitert werden kann.
